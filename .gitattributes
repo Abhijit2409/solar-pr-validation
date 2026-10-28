@@ -1,0 +1,2 @@
+# Keep exact bytes so SHA-256 hashes in the manifests reproduce on checkout
+* -text
