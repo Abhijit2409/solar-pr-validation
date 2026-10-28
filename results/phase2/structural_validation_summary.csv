@@ -1,0 +1,24 @@
+check_id,check,required,result,measured,expected,evidence
+V01,Raw files match Phase 1 SHA-256 hashes,True,PASS,22/22 match,all match,
+V01b,Pipeline input hashes equal manifest hashes,True,PASS,6 sources compared,equal,
+V02,"Every source-derived row has file, row, hash and original timestamp",True,PASS,1049291 source rows,,
+V02b,Each source file's rows appear exactly once (rows 2..n+1) with the file hash,True,PASS,6/6 sources,,
+V02c,Generated rows are only EXPECTED_ROW_MISSING and carry no source lineage,True,PASS,100507 generated rows,,
+V03,"Random 5,000 rows + spike row: timestamp text and raw value equal the raw file line",True,PASS,"5001 rows, 0 mismatches",0 mismatches,seed 20261027
+V04,Missing expected rows distinct from source nulls,True,PASS,"missing=100507, source_null=0",,
+V05,"Raw zeros (re-parsed from raw text, in scope) are OBSERVED_ZERO unless time-ambiguous or duplicate; every OBSERVED_ZERO has raw 0 and a source row; zeros are never generated",True,PASS,"in-scope raw zeros by state: {'OBSERVED_ZERO': 334240, 'TIME_AMBIGUOUS': 86}",,
+V06,Every superseded or conflicting duplicate row is flagged,True,PASS,95278 rows; roles {'superseded_identical': 95278},,
+V07,UTC strictly increasing in file order for each primary source; one resolved row per interval,True,PASS,"monotonic=[True, True], duplicate resolved intervals=0",,
+V08,"DST: 23 h spring / 25 h fall days, expected intervals match day length, no spring 02:xx rows or generated misses, ambiguous rows only in fall 01:xx",True,PASS,12 spring and 12 fall sensor-days; ambiguous rows=86; nonexistent=0,,results/phase2/dst_transition_summary.csv
+V09,Re-running the pipeline reproduces identical table contents,True,PASS,content equal: 5/5; parquet bytes equal: 5/5,,
+V10,Rows reconcile: observations = source rows + generated missing; expected = covered + missing + DST-ambiguous + conflict; every resolved row covers exactly one expected interval,True,PASS,1149798 = 1049291 + 100507; source rows = 741135 in scope + 308156 excluded; covered 741049 = resolved 741049,,results/phase2/row_reconciliation.csv
+V11,"Standardized = raw x multiplier + offset; units kW, W/m^2; DC 893.0 kW",True,PASS,max abs difference 0,,
+V12,"1,783.68 kW spike traceable and INVALID_PHYSICAL with documented rule",True,PASS,meter_main:39695 raw 1783.68 at 2018-02-18 12:30:00; state INVALID_PHYSICAL,,INVALID_VALUE;SUSPECTED_LOGGER_ARTEFACT
+V13,"POA 1400 W/m2 values retained and flagged, not removed",True,PASS,"13 rows (11 in scope), all flagged",,
+V14,Phase 1 sunny zero-output runs: in-scope runs are OBSERVED_ZERO + DAYLIGHT_ZERO_UNRESOLVED; runs in the 2024 increment are EXCLUDED_BY_SCOPE with value_state OBSERVED_ZERO,True,PASS,"43/43 runs (41 in scope, 2 in 2024 increment)",,events recomputed from raw data with src/audit_phase1.py (not read from the saved CSV)
+V14b,Saved results/phase1/daylight_zero_events.csv matches the recomputed Phase 1 events (INFO),False,INFO,"43 saved events, re-saved DD-MM-YYYY HH:MM format; identical events",same 43 events,saved file integrity only; V14 does not depend on it
+V15,Sampling regimes identified per source,False,INFO,meter_main_seg1: 15 min 2017-01..2023-11; meter_2024_seg1: 15 min 2024-01..2024-11; meter_2025_seg1: 15 min 2024-02..2025-12; poa_main_seg1: 5 min 2017-11..2023-11; poa_2024_seg1: 5 min 2024-01..2024-11; poa_2025_seg1: 5 min 2024-02..2024-10; poa_2025_seg2: 15 min 2024-11..2025-12,,
+V16,Interval-label check: best lag of measured POA vs clear-sky model on clear days (INFO),False,INFO,"May-Aug: n=278, median -11 min, IQR -12..-11; Nov-Feb: n=33, median -10 min, IQR -11..-9; other: n=209, median -11 min, IQR -12..-10","observed discrepancy under the tested model (pvlib Ineichen clear sky, 25 deg tilt, metadata azimuth); not a proof of label convention, clock offset or true azimuth",results/phase2/interval_label_check.csv
+V16b,Azimuth sensitivity of the clear-day lag (INFO),False,INFO,az 180 May-Aug: -11 min; az 180 Nov-Feb: -10 min; az 180 other: -11 min; az 190 May-Aug: 0 min; az 190 Nov-Feb: -2 min; az 190 other: -2 min; az 200 May-Aug: 12 min; az 200 Nov-Feb: 7 min; az 200 other: 8 min,"if one azimuth gives ~0 in all seasons, azimuth error is a live explanation",results/phase2/azimuth_sensitivity_check.csv
+V17,"15-min meter intervals with 3/2/1/0 usable 5-min POA intervals (daylight, INFO)",False,INFO,3 usable: 84853; 2 usable: 252; 1 usable: 70; 0 usable: 4280,,results/phase2/poa_15min_group_completeness.csv
+V18,Every 15-min meter interval contains exactly three expected 5-min POA intervals,True,PASS,210432/210432,,

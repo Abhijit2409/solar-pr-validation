@@ -1,0 +1,130 @@
+# Phase 2 data-structure configuration for PVDAQ system 2107.
+# Structural rules only. These are NOT experiment thresholds (Phase 4 freezes those).
+config_version: phase2-v1
+
+site:
+  site_id: 2107
+  site_name: Farm Solar Array
+  metadata_file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/metadata/2107_system_metadata.json
+  local_timezone: America/Los_Angeles     # same DST rules as source code PST8PDT since 2007
+  source_timezone_code: PST8PDT
+  mounting_type: fixed ground mount (Schletter)
+  source: "NREL PVDAQ via OEDI, DOI 10.25984/1846021, CC BY 4.0"
+  dc_capacity:
+    raw_value_key: "power(kW DC)"
+    raw_unit: kW
+    standardized_unit: kW
+    multiplier: 1.0
+
+# v1 scope: both AC and POA files exist (decision_log D5). Half-open [start, end) in local time.
+scope:
+  start_local: "2017-11-01 00:00:00"
+  end_local: "2023-11-02 00:00:00"
+  reason: "Primary main-file window; pre-2017-11 meter-only data and 2024-2025 increments are out of v1 scope"
+
+# Documented assumption (metadata time_interval = 'L'): a timestamp labels the START of its interval.
+interval_label: start
+
+# Ambiguous local timestamps (repeated fall-back hour) are never resolved from occurrence
+# count or file order: identical timestamps could be duplicated readings. Every occurrence
+# stays TIME_AMBIGUOUS with both UTC candidates, unless the source carries an explicit
+# UTC offset (none of the v1 files do).
+ambiguous_policy: flag_all_without_offset_evidence
+
+sensors:
+  meter_149578:
+    signal: ac_power
+    source_column: meter_revenue_grade_ac_output_meter_149578
+    metric_id: 149578
+    description: plant revenue-grade meter, average AC power over the interval
+    raw_unit: kW
+    standardized_unit: kW
+    multiplier: 1.0
+    offset: 0.0
+  poa_149574:
+    signal: poa_irradiance
+    source_column: poa_irradiance_o_149574
+    metric_id: 149574
+    description: plane-of-array irradiance, average over the interval (sensor model undocumented)
+    raw_unit: W/m^2
+    standardized_unit: W/m^2
+    multiplier: 1.0
+    offset: 0.0
+
+# Machine-readable source-precedence policy (docs/source_precedence.md). Implemented in ingest.resolve_precedence.
+precedence_policy:
+  key: [sensor_id, interval_start_utc]
+  winner: lowest precedence_rank, then lowest source_row (file order)
+  identical_if: absolute difference <= flag_rules.duplicate_value_tolerance, or both values null
+  same_file_identical: first row keeps its state; later rows DUPLICATE_IDENTICAL + DUPLICATE_TIMESTAMP_IDENTICAL flag
+  same_rank_conflict: all rows DUPLICATE_CONFLICT; interval CONFLICT_UNRESOLVED; no value chosen
+  lower_rank_identical: DUPLICATE_IDENTICAL (EXCLUDED_BY_SCOPE if out of v1 scope) + OVERLAP_IDENTICAL_ACROSS_FILES flag
+  lower_rank_conflict: DUPLICATE_CONFLICT (EXCLUDED_BY_SCOPE if out of v1 scope) + CONFLICTING_OVERLAPPING_SOURCE flag
+  rows_dropped: never   # every source row stays in observations with its lineage
+  ambiguous_time_rows: not keyed (no UTC); handled by the DST policy instead
+
+# Lower precedence_rank wins when the same sensor and UTC interval appear more than once.
+sources:
+  - source_id: meter_main
+    sensor_id: meter_149578
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data.csv
+    timestamp_column: measured_on
+    timestamp_convention: local
+    precedence_rank: 1
+    v1_role: primary
+  - source_id: meter_2024
+    sensor_id: meter_149578
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data_2024.csv
+    timestamp_column: measured_on
+    timestamp_convention: local
+    precedence_rank: 2
+    v1_role: excluded_increment
+  - source_id: meter_2025
+    sensor_id: meter_149578
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data_2025.csv
+    timestamp_column: measured_on
+    timestamp_convention: local
+    precedence_rank: 3
+    v1_role: excluded_increment
+  - source_id: poa_main
+    sensor_id: poa_149574
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_data.csv
+    timestamp_column: measured_on
+    timestamp_convention: local
+    precedence_rank: 1
+    v1_role: primary
+  - source_id: poa_2024
+    sensor_id: poa_149574
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_data_2024.csv
+    timestamp_column: measured_on
+    timestamp_convention: local
+    precedence_rank: 2
+    v1_role: excluded_increment
+  - source_id: poa_2025
+    sensor_id: poa_149574
+    file: data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_15m_data_2025.csv
+    timestamp_column: utc_measured_on
+    timestamp_convention: utc
+    precedence_rank: 3
+    v1_role: excluded_increment
+
+# Conservative project screening bounds for INVALID_PHYSICAL (structural, not detection thresholds).
+physical_limits:
+  ac_power:
+    min: -44.65    # -5% of DC nameplate: screening bound for implausible night import at this plant
+    max: 893.0     # screening bound set at DC nameplate. Not a universal physical ceiling; at this site
+                   # observed AC peaks are ~707 kW because the 24 inverters clip at ~30.1 kW each
+  poa_irradiance:
+    min: -20.0     # small negative night offsets are plausible for thermopile sensors
+    max: 2000.0    # above any recorded surface irradiance incl. cloud enhancement
+
+flag_rules:
+  duplicate_value_tolerance: 1.0e-6          # absolute; absorbs float text differences like 8.199999999999998 vs 8.2
+  poa_logger_ceiling_value: 1400.0           # exact repeated maximum seen in all POA files (issue I08)
+  daylight_min_solar_elevation_deg: 10.0     # flagging heuristic for unresolved daylight zeros, from site geometry
+  daylight_zero_poa_min_wm2: 200.0           # Phase 1 audit heuristic: meter zero while any POA reading in the interval > 200
+  sampling_regime_unit: month                # modal step per calendar month defines sampling segments
+
+outputs:
+  processed_dir: data/processed
+  results_dir: results/phase2

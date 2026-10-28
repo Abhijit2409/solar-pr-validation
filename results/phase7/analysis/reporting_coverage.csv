@@ -1,0 +1,5 @@
+population,method,unique_days,unconfirmed_alert_days,unconfirmed_alert_share,reporting_coverage_retained,review_days,insufficient_days
+sampled windows (unique unmodified days),basic,96,14,0.1458333333333333,0.8541666666666666,14,0
+sampled windows (unique unmodified days),improved,96,14,0.1458333333333333,0.8541666666666666,14,0
+full eligible population (unique days),basic,1270,177,0.1393700787401574,0.8606299212598425,165,12
+full eligible population (unique days),improved,1270,177,0.1393700787401574,0.8606299212598425,165,12

@@ -1,0 +1,3 @@
+population,method,unique_days,unconfirmed_alert_days,unconfirmed_alert_share,reporting_coverage_retained,review_days,insufficient_days
+full eligible population (unique days),basic,1270,177,0.13937007874015747,0.8606299212598425,165,12
+full eligible population (unique days),improved,1270,177,0.13937007874015747,0.8606299212598425,165,12

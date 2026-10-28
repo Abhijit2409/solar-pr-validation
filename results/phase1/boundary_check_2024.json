@@ -1,0 +1,134 @@
+{
+  "inverter_ac_power_columns": 24,
+  "electrical_rows": 88115,
+  "electrical_modal_step": "0 days 00:05:00",
+  "rows_with_any_null_ac_power": 0,
+  "per_inverter_max_kw": {
+    "inv_01": 30.087,
+    "inv_02": 30.086,
+    "inv_03": 30.086,
+    "inv_04": 30.084,
+    "inv_05": 30.086,
+    "inv_06": 30.089,
+    "inv_07": 30.089,
+    "inv_08": 30.088,
+    "inv_09": 30.089,
+    "inv_10": 30.075,
+    "inv_11": 30.081,
+    "inv_12": 30.087,
+    "inv_13": 30.083,
+    "inv_14": 30.095,
+    "inv_15": 30.093,
+    "inv_16": 30.084,
+    "inv_17": 30.088,
+    "inv_18": 30.09,
+    "inv_19": 30.085,
+    "inv_20": 30.088,
+    "inv_21": 30.099,
+    "inv_22": 30.086,
+    "inv_23": 30.086,
+    "inv_24": 30.088
+  },
+  "per_inverter_p999_kw": {
+    "inv_01": 30.05,
+    "inv_02": 30.05,
+    "inv_03": 30.0,
+    "inv_04": 30.05,
+    "inv_05": 30.01,
+    "inv_06": 30.05,
+    "inv_07": 30.06,
+    "inv_08": 29.99,
+    "inv_09": 30.06,
+    "inv_10": 29.96,
+    "inv_11": 30.05,
+    "inv_12": 30.06,
+    "inv_13": 30.06,
+    "inv_14": 30.06,
+    "inv_15": 30.07,
+    "inv_16": 30.0,
+    "inv_17": 30.06,
+    "inv_18": 30.05,
+    "inv_19": 30.05,
+    "inv_20": 30.05,
+    "inv_21": 30.06,
+    "inv_22": 30.03,
+    "inv_23": 30.04,
+    "inv_24": 30.0
+  },
+  "inverter_sum_max_kw": 721.3660000000001,
+  "meter_vs_inverter_sum_by_inverter_label_shift_min": {
+    "-15": {
+      "rows": 11197,
+      "corr": 0.951,
+      "median_meter_over_inverter_sum": 0.9824
+    },
+    "-10": {
+      "rows": 11197,
+      "corr": 0.9732,
+      "median_meter_over_inverter_sum": 0.982
+    },
+    "-5": {
+      "rows": 11197,
+      "corr": 0.9896,
+      "median_meter_over_inverter_sum": 0.9818
+    },
+    "0": {
+      "rows": 11197,
+      "corr": 0.9908,
+      "median_meter_over_inverter_sum": 0.9818
+    },
+    "5": {
+      "rows": 11197,
+      "corr": 0.9736,
+      "median_meter_over_inverter_sum": 0.9819
+    },
+    "10": {
+      "rows": 11197,
+      "corr": 0.9512,
+      "median_meter_over_inverter_sum": 0.9823
+    },
+    "15": {
+      "rows": 11197,
+      "corr": 0.9291,
+      "median_meter_over_inverter_sum": 0.9829
+    }
+  },
+  "inverter_sum_vs_poa_corr_by_poa_label_shift_min_std_months_2024": {
+    "-20": {
+      "rows": 6498,
+      "corr": 0.8418
+    },
+    "-15": {
+      "rows": 6498,
+      "corr": 0.8615
+    },
+    "-10": {
+      "rows": 6498,
+      "corr": 0.8823
+    },
+    "-5": {
+      "rows": 6498,
+      "corr": 0.9066
+    },
+    "0": {
+      "rows": 6498,
+      "corr": 0.9692
+    },
+    "5": {
+      "rows": 6498,
+      "corr": 0.8969
+    },
+    "10": {
+      "rows": 6498,
+      "corr": 0.865
+    },
+    "15": {
+      "rows": 6498,
+      "corr": 0.8388
+    },
+    "20": {
+      "rows": 6498,
+      "corr": 0.8106
+    }
+  }
+}

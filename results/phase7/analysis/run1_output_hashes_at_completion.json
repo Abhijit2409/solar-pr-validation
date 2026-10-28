@@ -1,0 +1,19 @@
+{
+  "run1_output_sha256": {
+    "alert_burden_population.csv": "b1d63af8d3788d99cdd7eae797428adf39c80369767680e89bfbf02fbc0576ab",
+    "alert_burden_sampled.csv": "ecf5d40b483c1cfe7f354833c45e918c5bb11e94a3581a7308bfa40177f2a08a",
+    "case_scores.csv": "14d03d4ed15f1cc53898b18d4b67a3728733e701e22b77d9fdfe325a9cc0c3d7",
+    "COMPLETED": "c4d2d203c9d60c68bba97bffe4d9cbd0e2f4fdc21c41baf2331837c1bdd5b400",
+    "detector_check_results.parquet": "deb415642c9c38b60226ad5e3af0da0c32b552af94c4314d5361751dc422ae82",
+    "detector_day_results.csv": "ff9dc4fc220fcc357d47db6845a7fd2ef46aebb89d5289824d6aabd97aede781",
+    "injection_truth.csv": "74f208946c5aa679ce71a5d29a201c120a256493ef282cc2d24982328bbcab1d",
+    "population_unmodified_days.csv": "0efa06cded54b3e7195a682e48436affa9b02c5a79358ee4a58c50002c08d6cd",
+    "rate_summary.csv": "d7fb6285c7ccfa6c7f14a78599d3d6a1a4fe490399a5b398ff65958e90b028dc",
+    "run_metadata.json": "1a07706f26a69428df9b5359ec63956844da69d4b4e730a55cdacec6c469da25",
+    "unmodified_counterparts.csv": "a5fe8b9c878e91e8ff67b0013843cb640baef6bb91875a5a257c094f8cb1be53"
+  },
+  "execution_files_sha256": {
+    "results/phase7/run1_execution.log": "ad5a218a79710bdb5f7c00ce3de9ebdf474fe9bf85031f4d49772c41653fca6d",
+    "results/phase7/run1_exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  }
+}

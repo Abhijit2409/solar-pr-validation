@@ -1,0 +1,8 @@
+check_id,check,result,measured
+P7-01,Process exit code 0 and COMPLETED marker present,PASS,exit 0
+P7-02,"Run metadata: experiment-v3, 96 windows, 672 cases, 768 detector runs, 0 failures",PASS,"{'experiment_version': 'experiment-v3', 'started_utc': '2026-10-27T03:09:12.080070+00:00', 'finished_utc': '2026-10-27T03:15:21.781014+00:00', 'windows': 96, 'detector_runs': 768, 'cases': 672, 'failures': 0, 'freeze_manifest_sha256': '4864e23a04cce9814275132ccd63be63a89439e8795dc00fa31b4a79d8b5d393', 'versions': {'python': '3.11.0', 'pandas': '3.0.5', 'numpy': '2.4.6', 'pyarrow': '25.0.1', 'pvlib': '0.16.1', 'PyYAML': '6.0.3', 'scipy': '1.17.1'}}"
+P7-03,run1 outputs byte-identical to their hashes recorded at completion (analysis read-only),PASS,11 files
+P7-04,Freeze B verifies after execution; run used the freeze manifest hash,PASS,verified
+P7-05,Independent scoring audit (AI-assisted; separate code) passes,PASS,26/26 items
+P7-06,Reconciliation: planned = attempted = applied + unscorable; no failed windows; 2 scores per case,PASS,"planned 672, applied 672, unscorable 0"
+P7-07,"Slim truth summary written (full truth kept in run1, excluded from Git by size)",PASS,672 rows

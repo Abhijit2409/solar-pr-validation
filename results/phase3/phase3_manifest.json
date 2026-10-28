@@ -1,0 +1,54 @@
+{
+  "metric_version": "phase3-v1",
+  "development_period": [
+    "2018-02-01",
+    "2020-02-01"
+  ],
+  "started_utc": "2026-10-27T01:55:49.160242+00:00",
+  "finished_utc": "2026-10-27T01:56:14.036587+00:00",
+  "inputs": {
+    "phase2_validation_status": "PASS",
+    "phase2_validation_finished_utc": "2026-10-27T01:35:10.263549+00:00",
+    "raw_files_unchanged": "22/22",
+    "processed_file_sha256": {
+      "site_metadata": "ead5faf7a55336606c3dcdb938815a80605070e64468e8f3d2fbdb1232ccb03f",
+      "observations": "7886ea57583d40a7697ff18ab17db0afc6dc66559ea729a2a6e06247d7d76c1f",
+      "expected_intervals": "61688e196b58ed7bca778b6b940e2a1a55a739fdd408035f232cd85bf55841a8",
+      "structural_quality_flags": "6c5551fc457a9fcef38e2e2866f2e16133f4b80ee5c86823a5939ac6f91190af",
+      "sampling_segments": "91e39b89d3352f1bfb9a1fc3a9b5d26856214786ff61e74a7db011be9e046b92"
+    }
+  },
+  "config_sha256": {
+    "config/metric_definition.yaml": "ce4c409c6c50045cddf6306946668766c31ca90cbefb944b34af8a7cc623430f",
+    "config/data_structure.yaml": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52"
+  },
+  "code_sha256": {
+    "src/run_phase3.py": "d77dc8c488d43826a109f32799724f7e14de91fd74823b6f096cc18644f9a24b",
+    "src/pair_intervals.py": "76b74ad47731493a7a64d48a08fcb758c793626ba6aa6539092144330c93ddce",
+    "src/metrics.py": "4ef7ef8771f82d1bfd0eeca22c833d504201dc3cf4f61accfde449498c0c3e77",
+    "src/timestamps.py": "7802c40984cb89c3a88fa8dcde8f35099abf7e7d6966ae5fed22723f58d80cf5",
+    "src/ingest.py": "8dec9f466e8eb2d4bc769e7ee6326def658b846b2c47354c0141a2a763565ea2"
+  },
+  "capacity_kw": 893.0,
+  "outputs": {
+    "paired_intervals_dev.parquet": {
+      "rows": 70080,
+      "content_sha256": "a4b0b583feb3eec92160c38abee6e121a73ec89b1d64a099bc6b12671f24d782"
+    },
+    "daily_pr_dev.csv": {
+      "rows": 730,
+      "content_sha256": "234b0f3652228b2dc214f6f62b2cb5796e22a707126127fd1720f5b43cc5b1ea"
+    }
+  },
+  "status_counts": {
+    "CHECKS_PASSED": 515,
+    "REVIEW_REQUIRED": 180,
+    "INSUFFICIENT_DATA": 35
+  },
+  "versions": {
+    "python": "3.11.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "pvlib": "0.16.1"
+  }
+}

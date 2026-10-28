@@ -1,0 +1,46 @@
+{
+  "phase": 7,
+  "overall_status": "PASS",
+  "run_id": "run1",
+  "run_dir": "results/phase7/run1",
+  "experiment_version": "experiment-v3",
+  "process_exit_code": 0,
+  "run_started_utc": "2026-10-27T03:09:12.080070+00:00",
+  "run_finished_utc": "2026-10-27T03:15:21.781014+00:00",
+  "run1_output_sha256": {
+    "alert_burden_population.csv": "b1d63af8d3788d99cdd7eae797428adf39c80369767680e89bfbf02fbc0576ab",
+    "alert_burden_sampled.csv": "ecf5d40b483c1cfe7f354833c45e918c5bb11e94a3581a7308bfa40177f2a08a",
+    "case_scores.csv": "14d03d4ed15f1cc53898b18d4b67a3728733e701e22b77d9fdfe325a9cc0c3d7",
+    "COMPLETED": "c4d2d203c9d60c68bba97bffe4d9cbd0e2f4fdc21c41baf2331837c1bdd5b400",
+    "detector_check_results.parquet": "deb415642c9c38b60226ad5e3af0da0c32b552af94c4314d5361751dc422ae82",
+    "detector_day_results.csv": "ff9dc4fc220fcc357d47db6845a7fd2ef46aebb89d5289824d6aabd97aede781",
+    "injection_truth.csv": "74f208946c5aa679ce71a5d29a201c120a256493ef282cc2d24982328bbcab1d",
+    "population_unmodified_days.csv": "0efa06cded54b3e7195a682e48436affa9b02c5a79358ee4a58c50002c08d6cd",
+    "rate_summary.csv": "d7fb6285c7ccfa6c7f14a78599d3d6a1a4fe490399a5b398ff65958e90b028dc",
+    "run_metadata.json": "1a07706f26a69428df9b5359ec63956844da69d4b4e730a55cdacec6c469da25",
+    "unmodified_counterparts.csv": "a5fe8b9c878e91e8ff67b0013843cb640baef6bb91875a5a257c094f8cb1be53"
+  },
+  "execution_log_sha256": "ad5a218a79710bdb5f7c00ce3de9ebdf474fe9bf85031f4d49772c41653fca6d",
+  "freeze_b_manifest_sha256": "4864e23a04cce9814275132ccd63be63a89439e8795dc00fa31b4a79d8b5d393",
+  "freeze_b_verified_after_run": true,
+  "analysis_sha256": {
+    "audit_mismatches.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "case_reconciliation.csv": "08eb74926ac9df4156e77a35baa024b9e43255eb18287a6430ed44a4a8dbdd50",
+    "common_subset_results.csv": "f7a26d3407d7fed8f1512b84acabd12698c549ca37560d1d6d7ff4209df59a9f",
+    "injection_truth_summary.csv": "7bfcc28480c22b739df75f279e8dae8ba34b92b3217a61105d70b5ef368648ca",
+    "pr_effect_summary.csv": "28f82274c4819931cfcb82d83e4c0e1d24d0c6cdb2132d902a34dae10058a177",
+    "primary_results.csv": "7b3da8b3b1ba1ec9f71766d3ca4cc63a97366d03979bd597c87214e0f84dcd25",
+    "reported_despite_pr_change.csv": "6638bb654c31103989c21cf738c3aaec462ce698f5ec318b1e7d20b572c2230a",
+    "reporting_coverage.csv": "fad1f970566f8bae2eca9f21694d8d92edad96be09a60ac5438191a3c6cbabb6",
+    "representative_cases.csv": "b9b5cb7e1e78ceb4961458177eccc7f098ede4978a859daed6f52ad448296522",
+    "run1_output_hashes_at_completion.json": "5e19c908c2f0a75129ada011b4e86673db313ed22eb7cbb9c32b6fc3bdd49bb5",
+    "scoring_audit.csv": "82f3e91957069acabf775cc6229df6bdc5e1f967e95ed75f4e309f5367e07a6f",
+    "secondary_results.csv": "91180613933821449bff8f7bd5cc54555cd58b6bd8f1f690c78e0b2a2e898a84",
+    "timing_applicability_by_season.csv": "a82bc04ee488055e9b9685cf0458aae45046415dcd4db526582da32e8c6177a0"
+  },
+  "audit": "AI-assisted independent re-scoring (src/audit_phase7.py); no human review performed",
+  "checks": {
+    "PASS": 7
+  },
+  "validator_sha256": "e09bf9a110488419b9cfca5f1e997fb97b78417b67d1ca3b42445b1af9dc665e"
+}

@@ -1,0 +1,13 @@
+{
+  "label": "DEVELOPMENT-PERIOD SMOKE CASES (not evaluation)",
+  "days": [
+    "2019-01-15",
+    "2019-04-15",
+    "2019-07-15",
+    "2019-10-15"
+  ],
+  "windows": 12,
+  "detector_runs": 96,
+  "cases": 84,
+  "experiment_version": "experiment-v3"
+}

@@ -1,0 +1,78 @@
+# Phase 3 metric configuration: non-temperature-corrected daylight-window Performance Ratio.
+# Written before any real PR value was computed. Thresholds marked provisional are
+# Phase 3 calculation/input-eligibility choices; Phase 4 finalises the experiment spec.
+metric_version: phase3-v1
+metric_name: daylight_window_pr
+description: >
+  PR = (E_AC / P_DC_STC) / (H_POA / G_STC), over fully paired 15-min intervals inside a
+  solar-geometry daylight window of one local reporting day. Stored as a ratio.
+
+capacity:
+  source: site_metadata.dc_capacity_kw      # 893.0 kW from metadata 'power(kW DC)'
+  expected_kw: 893.0                        # 892.8 kW module inventory is NOT used (docs/metric_definition.md)
+g_stc_kw_m2: 1.0
+
+# Chronological development period (local reporting dates, half-open [start, end)).
+# Only these dates are used for Phase 3 real-data examples and provisional choices.
+# Later dates (2020-02-01 to 2023-11-01) are not used for metric tuning, but they were
+# profiled in Phases 1-2, so they are not "unseen raw data".
+development_period:
+  start_local_date: "2018-02-01"
+  end_local_date: "2020-02-01"
+  rationale: >
+    First 24 months of usable paired coverage (POA nearly empty before 2018-02, issue I17).
+    Two full seasonal cycles; includes known messy periods (Apr 2018 POA gap, 2018-02-18
+    catch-up spike, Feb 2019 daylight zeros) so the rules meet real defects.
+
+reporting_window:
+  basis: solar_geometry                    # never the measured POA sensor
+  evaluated_at: meter_interval_midpoint    # under the interval-start assumption
+  min_solar_elevation_deg: 5.0             # PROVISIONAL
+  rationale: >
+    Excludes dawn/dusk intervals where the sun is near the horizon: tiny energy share, the
+    unresolved ~11-min timing discrepancy moves elevation by ~1-2 deg there, and the south-facing
+    25 deg plane sees mostly diffuse light. Night (incl. DST-ambiguous 01:xx intervals) is
+    always outside the window.
+
+pairing:
+  poa_offsets_min: [0, 5, 10]              # POA starts t, t+5, t+10 inside meter [t, t+15)
+  usable_states: [OBSERVED_VALID, OBSERVED_ZERO]
+  require_complete_poa: true               # partial POA excludes the whole meter interval
+
+units:
+  power_to_kw: {W: 0.001, kW: 1.0, MW: 1000.0}
+  irradiance_to_kw_m2: {"W/m^2": 0.001, "kW/m^2": 1.0}
+
+eligibility:                               # all PROVISIONAL
+  min_time_coverage: 0.90                  # paired hours / window hours
+  min_clearsky_weighted_coverage: 0.90     # clear-sky-model POA in paired intervals / in window
+  min_paired_irradiation_kwh_m2: 0.5       # minimum denominator H_POA
+  rationale: >
+    90% coverage leaves room for isolated dropouts but withholds days missing a large block.
+    Clear-sky weighting stops a day that lost its midday hours from passing on time coverage alone
+    (the model is used only as a weight, never as a substitute value). 0.5 kWh/m2 is roughly
+    10% of a clear winter day on this plane; below it PR is dominated by low-light behaviour,
+    sensor offsets and quantisation (meter 0.64 kW steps).
+
+clearsky_model:                            # used only for coverage weights
+  model: ineichen
+  transposition: isotropic
+  tilt_deg_source: site_metadata.tilt_deg
+  azimuth_deg_source: site_metadata.azimuth_deg   # metadata 180 deg, unchanged
+
+# How unresolved Phase 2 flags inside the reporting window affect a day.
+# withhold -> REVIEW_REQUIRED; context -> counted only.
+flag_policy:
+  "DAYLIGHT_ZERO_UNRESOLVED:A-DAYZERO": withhold        # UNRESOLVED_ZERO_OUTPUT
+  "SUSPECTED_LOGGER_ARTEFACT:A-CATCHUP": withhold       # SUSPECTED_CATCH_UP
+  "INVALID_VALUE:R-LIMITS": withhold                    # INVALID_INPUT_IN_WINDOW
+  "SUSPECTED_LOGGER_ARTEFACT:A-CEILING": context        # 1400 W/m2 ceiling, value retained
+  "IRREGULAR_INTERVAL:E-STEP": context                  # gaps already counted by coverage
+  "MISSING_EXPECTED_INTERVAL:E-GRID": context           # counted by coverage
+  "UNRESOLVED_DST_INTERVAL:T-AMBIG": withhold           # only possible at night; never in window here
+  "AMBIGUOUS_LOCAL_TIMESTAMP:T-AMBIG": withhold
+negative_inputs_in_window: withhold                     # kept as observed, not clipped
+
+status_precedence: [INSUFFICIENT_DATA, REVIEW_REQUIRED, CHECKS_PASSED]
+outputs:
+  results_dir: results/phase3

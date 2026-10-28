@@ -1,0 +1,27 @@
+item,expected,observed,result
+COMPLETED marker present,True,True,PASS
+windows with an unmodified counterpart,96,96,PASS
+counterpart windows equal the frozen sample,True,True,PASS
+planned cases (from frozen sample x case specs),672,672,PASS
+truth records,672,672,PASS
+truth case ids unique,True,True,PASS
+every window has its family's case count,True,True,PASS
+failures file absent (no window raised),False,False,PASS
+scores rows = 2 methods x truth records,1344,1344,PASS
+each case scored once per method,True,True,PASS
+unscorable truth records,see observed,0,PASS
+every applied case and counterpart has detector output for both methods,True,True,PASS
+detector runs = counterparts + applied cases,768,768,PASS
+detector outputs carry no truth columns,True,True,PASS
+population unique days per method,1270,1270,PASS
+category mismatches (independent re-scoring vs saved),0,0,PASS
+PR percentage-point mismatches,0,0,PASS
+category counts sum to scored cases,1344,1344,PASS
+no ALREADY_WITHHELD case counted as detection,True,True,PASS
+UNSCORABLE exactly where injection not applied,True,True,PASS
+"rate rows disagreeing with independent recomputation (headline, conclusive, denominators, unique windows)",0,0,PASS
+zero-denominator rate rows are null,True,True,PASS
+alert burden sampled basic: unique days / not-passed,"(96, 14)","(96, 14)",PASS
+alert burden sampled improved: unique days / not-passed,"(96, 14)","(96, 14)",PASS
+alert burden population basic: unique days / not-passed,"(1270, 177)","(1270, 177)",PASS
+alert burden population improved: unique days / not-passed,"(1270, 177)","(1270, 177)",PASS

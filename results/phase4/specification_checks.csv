@@ -1,0 +1,11 @@
+check_id,check,result,measured
+C01,"Periods contiguous, non-overlapping, half-open, inside v1 scope",PASS,"dev [2018-02-01, 2020-02-01) eval [2020-02-01, 2023-11-01)"
+C02,Shared rules equal the Phase 3 metric configuration,PASS,"capacity, window, min irradiation, precedence, version"
+C03,Thresholds in valid ranges (stale tolerance below half the 0.1 W/m2 resolution; lag search covers the largest shift),PASS,see config
+C04,Timing baseline equals the development median; threshold flags 0 conclusive development days,PASS,baseline -11.0 on 155 conclusive days
+C05,Fault severities on the sensor grids; shifts +-15/30/60; seeds distinct,PASS,missing 15-min multiples; flatline 5-min multiples
+C06,"Window sample: eligible, in evaluation period, disjoint, 8 per family-season, reproducible from seed",PASS,96 unique windows
+C07,Rule table well formed; every fault-specific reason is produced by a non-context rule,PASS,"17 rules; scored reasons ['LOW_CLEARSKY_WEIGHTED_COVERAGE', 'LOW_TIME_COVERAGE', 'NO_PAIRED_DATA', 'POA_STALE', 'TIMING_INCONSISTENT']"
+C08,Phase 3 configuration preserved unchanged (phase3-v1 hash),PASS,metric_definition.yaml unchanged
+C09,Value-based Phase 4 outputs contain only development dates; evaluation outputs are structural only,PASS,"eligibility columns: ['day_length_h', 'eligible', 'excl_dst_transition_day', 'excl_incomplete_window_meter', 'excl_incomplete_window_poa', 'excl_missing_neighbour_day', 'excl_not_in_eval_period', 'has_any_data', 'local_reporting_date', 'season', 'window_meter_ok', 'window_poa_ok']"
+C10,Raw files and Phase 2 processed tables unchanged,PASS,"raw 22, processed 5"

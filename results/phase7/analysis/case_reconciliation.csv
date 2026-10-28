@@ -1,0 +1,7 @@
+family,scenario,windows,planned,attempted,applied,unscorable,unscorable_reasons,failed_windows,scored_rows
+missing_daytime,primary:rows_removed,32,128,128,128,0,{},0,256
+missing_daytime,secondary:explicit_nulls,32,32,32,32,0,{},0,64
+timestamp_shift,primary:poa_only,32,192,192,192,0,{},0,384
+timestamp_shift,secondary:whole_file,32,128,128,128,0,{},0,256
+flatline_poa,primary:hold_last,32,160,160,160,0,{},0,320
+flatline_poa,secondary:fixed_value_600,32,32,32,32,0,{},0,64

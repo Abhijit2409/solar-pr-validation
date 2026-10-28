@@ -1,0 +1,52 @@
+{
+  "config_version": "phase2-v1",
+  "config_sha256": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52",
+  "code_sha256": {
+    "src/ingest.py": "8dec9f466e8eb2d4bc769e7ee6326def658b846b2c47354c0141a2a763565ea2",
+    "src/timestamps.py": "7802c40984cb89c3a88fa8dcde8f35099abf7e7d6966ae5fed22723f58d80cf5",
+    "src/standardize.py": "8e67e1f9d2c7f5aad4898be67cecf41565b36760fee1d555a99a54cb5c921208"
+  },
+  "input_sha256": {
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data.csv": "7f6c7cf80aae5dd8dd3687a7df95e35d03ffdc5bc0848256a1d76147bce9eb47",
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data_2024.csv": "bdef5026a5715f5a2b114580dd767a02bf35c4986bbffe496c4b89e85789eb98",
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_meter_15m_data_2025.csv": "20fe6e7124bcd65715e69df0d8f5776019632c776cbe39fecb0d65908d9b14ff",
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_data.csv": "f3820b3c705eecabdc76a9a0363b576cae68bc77492891c5da91017d1489031f",
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_data_2024.csv": "fd5acea27608b348b98d0e57d6e8a16f75031cfd6813f7a23caf15211caaec29",
+    "data/raw/pvdaq/2023-solar-data-prize/2107_OEDI/data/2107_irradiance_15m_data_2025.csv": "c32cb8948d13645b10c05322ad32f7b61195b9e08d0ef0d6b673cea105cd4544"
+  },
+  "input_rows": {
+    "meter_main": 240062,
+    "meter_2024": 32155,
+    "meter_2025": 67191,
+    "poa_main": 531019,
+    "poa_2024": 73077,
+    "poa_2025": 105787
+  },
+  "tables": {
+    "site_metadata": {
+      "rows": 1,
+      "content_sha256": "dfae68b5511c5769de6c864cbd1f3444f5435247f7b5d4f32cfa0c3b8bad3d4d"
+    },
+    "observations": {
+      "rows": 1149798,
+      "content_sha256": "c739e145d046646c6cc426bf6635220dffe5772ae4d02fabb3db24b1e361965e"
+    },
+    "expected_intervals": {
+      "rows": 841728,
+      "content_sha256": "e801d97724961846fcb6d812f14dd2f48e2387024b0bb631ad45387c4cf0e7c1"
+    },
+    "structural_quality_flags": {
+      "rows": 235999,
+      "content_sha256": "e9f637e0a5407cfc792dae856a67f983d3ef5cc18b01a6c7aebc089bbca56635"
+    },
+    "sampling_segments": {
+      "rows": 7,
+      "content_sha256": "5a67c44ccb6b3e0d7feb66dd4a5f41fec5a2433f2e3fbaca1e4b3b944ffdcf82"
+    }
+  },
+  "versions": {
+    "python": "3.11.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6"
+  }
+}

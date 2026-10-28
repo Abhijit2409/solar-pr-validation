@@ -1,0 +1,406 @@
+[
+  {
+    "dataset": "meter_2017_2023",
+    "file": "2107_meter_15m_data.csv",
+    "columns": [
+      "measured_on",
+      "meter_revenue_grade_ac_output_meter_149578"
+    ],
+    "timestamp_column": "measured_on",
+    "rows": 240062,
+    "unparseable_timestamps": 0,
+    "first_ts": "2017-01-01 00:15:00",
+    "last_ts": "2023-11-09 23:30:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:15:00": 240051,
+      "0 days 01:15:00": 8,
+      "2 days 00:15:00": 1,
+      "1 days 00:15:00": 1
+    },
+    "nominal_interval": "0 days 00:15:00",
+    "expected_grid_rows": 240382,
+    "grid_rows_missing": 320,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 10,
+    "gaps_gt_1day": 2,
+    "largest_gaps": [
+      {
+        "after": "2021-07-15 23:45:00",
+        "before": "2021-07-18 00:00:00",
+        "length": "2 days 00:15:00"
+      },
+      {
+        "after": "2023-05-11 23:45:00",
+        "before": "2023-05-13 00:00:00",
+        "length": "1 days 00:15:00"
+      }
+    ],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 1783.68,
+    "percentiles": {
+      "0.5": 0.0,
+      "0.9": 552.32,
+      "0.99": 679.04,
+      "0.999": 705.28
+    },
+    "zero_values": 125925,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 125925,
+      "0.64": 1491,
+      "1.28": 717,
+      "1.92": 547,
+      "2.56": 503
+    },
+    "values_gt_dc_capacity_kw": 1,
+    "values_gt_inverter_ac_nameplate_kw": 4509,
+    "max_as_fraction_of_dc": 1.997,
+    "nonzero_flat_runs_ge_2h": 2,
+    "nonzero_flat_run_examples": [
+      {
+        "start": "2017-01-18 19:00:00",
+        "intervals": 12,
+        "value": 0.1216
+      },
+      {
+        "start": "2022-04-05 11:45:00",
+        "intervals": 8,
+        "value": 646.4
+      }
+    ]
+  },
+  {
+    "dataset": "meter_2024",
+    "file": "2107_meter_15m_data_2024.csv",
+    "columns": [
+      "measured_on",
+      "meter_revenue_grade_ac_output_meter_149578"
+    ],
+    "timestamp_column": "measured_on",
+    "rows": 32155,
+    "unparseable_timestamps": 0,
+    "first_ts": "2024-01-01 00:15:00",
+    "last_ts": "2024-11-30 23:45:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:15:00": 32153,
+      "0 days 01:15:00": 1
+    },
+    "nominal_interval": "0 days 00:15:00",
+    "expected_grid_rows": 32159,
+    "grid_rows_missing": 4,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 1,
+    "gaps_gt_1day": 0,
+    "largest_gaps": [],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 705.92,
+    "percentiles": {
+      "0.5": 1.28,
+      "0.9": 568.32,
+      "0.99": 688.0,
+      "0.999": 703.36
+    },
+    "zero_values": 15764,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 15764,
+      "0.64": 198,
+      "1.28": 118,
+      "1.92": 89,
+      "2.56": 79
+    },
+    "values_gt_dc_capacity_kw": 0,
+    "values_gt_inverter_ac_nameplate_kw": 893,
+    "max_as_fraction_of_dc": 0.791,
+    "nonzero_flat_runs_ge_2h": 0,
+    "nonzero_flat_run_examples": []
+  },
+  {
+    "dataset": "meter_2025",
+    "file": "2107_meter_15m_data_2025.csv",
+    "columns": [
+      "measured_on",
+      "meter_revenue_grade_ac_output_meter_149578"
+    ],
+    "timestamp_column": "measured_on",
+    "rows": 67191,
+    "unparseable_timestamps": 0,
+    "first_ts": "2024-02-01 00:15:00",
+    "last_ts": "2025-12-31 23:45:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:15:00": 67188,
+      "0 days 01:15:00": 2
+    },
+    "nominal_interval": "0 days 00:15:00",
+    "expected_grid_rows": 67199,
+    "grid_rows_missing": 8,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 2,
+    "gaps_gt_1day": 0,
+    "largest_gaps": [],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 707.84,
+    "percentiles": {
+      "0.5": 0.0,
+      "0.9": 556.16,
+      "0.99": 691.84,
+      "0.999": 706.56
+    },
+    "zero_values": 34254,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 34254,
+      "0.64": 375,
+      "1.28": 223,
+      "1.92": 180,
+      "2.56": 167
+    },
+    "values_gt_dc_capacity_kw": 0,
+    "values_gt_inverter_ac_nameplate_kw": 1671,
+    "max_as_fraction_of_dc": 0.793,
+    "nonzero_flat_runs_ge_2h": 0,
+    "nonzero_flat_run_examples": []
+  },
+  {
+    "dataset": "poa_2017_2023",
+    "file": "2107_irradiance_data.csv",
+    "columns": [
+      "measured_on",
+      "poa_irradiance_o_149574"
+    ],
+    "timestamp_column": "measured_on",
+    "rows": 531019,
+    "unparseable_timestamps": 0,
+    "first_ts": "2017-11-01 07:10:00",
+    "last_ts": "2023-11-01 23:55:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:05:00": 494105,
+      "0 days 00:10:00": 15521,
+      "0 days 00:15:00": 13293,
+      "0 days 00:20:00": 7898,
+      "0 days 00:25:00": 52,
+      "0 days 00:30:00": 29,
+      "0 days 23:40:00": 11,
+      "0 days 00:35:00": 11
+    },
+    "nominal_interval": "0 days 00:05:00",
+    "expected_grid_rows": 631210,
+    "grid_rows_missing": 100191,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 36913,
+    "gaps_gt_1day": 7,
+    "largest_gaps": [
+      {
+        "after": "2022-02-18 13:20:00",
+        "before": "2022-03-07 11:25:00",
+        "length": "16 days 22:05:00"
+      },
+      {
+        "after": "2018-01-08 12:10:00",
+        "before": "2018-01-22 12:55:00",
+        "length": "14 days 00:45:00"
+      },
+      {
+        "after": "2017-12-29 11:20:00",
+        "before": "2018-01-08 11:05:00",
+        "length": "9 days 23:45:00"
+      },
+      {
+        "after": "2018-04-13 11:30:00",
+        "before": "2018-04-23 09:40:00",
+        "length": "9 days 22:10:00"
+      },
+      {
+        "after": "2022-06-08 00:00:00",
+        "before": "2022-06-17 10:10:00",
+        "length": "9 days 10:10:00"
+      },
+      {
+        "after": "2022-10-23 07:10:00",
+        "before": "2022-10-26 07:15:00",
+        "length": "3 days 00:05:00"
+      },
+      {
+        "after": "2021-11-04 07:05:00",
+        "before": "2021-11-05 07:15:00",
+        "length": "1 days 00:10:00"
+      }
+    ],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 1400.0,
+    "percentiles": {
+      "0.5": 34.4,
+      "0.9": 866.0,
+      "0.99": 1026.7,
+      "0.999": 1155.198199999996
+    },
+    "zero_values": 224014,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 224014,
+      "1.6": 2876,
+      "4.9": 1618,
+      "3.3": 1431,
+      "6.6": 943
+    },
+    "values_gt_1500_wm2": 0,
+    "values_gt_1300_wm2": 51,
+    "nonzero_flat_runs_ge_2h": 0,
+    "nonzero_flat_run_examples": []
+  },
+  {
+    "dataset": "poa_2024",
+    "file": "2107_irradiance_data_2024.csv",
+    "columns": [
+      "measured_on",
+      "poa_irradiance_o_149574"
+    ],
+    "timestamp_column": "measured_on",
+    "rows": 73077,
+    "unparseable_timestamps": 0,
+    "first_ts": "2024-01-01 00:10:00",
+    "last_ts": "2024-11-01 23:55:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:05:00": 64976,
+      "0 days 00:10:00": 3428,
+      "0 days 00:15:00": 3004,
+      "0 days 00:20:00": 1663,
+      "0 days 01:15:00": 1,
+      "0 days 04:25:00": 1,
+      "0 days 02:00:00": 1,
+      "0 days 01:10:00": 1
+    },
+    "nominal_interval": "0 days 00:05:00",
+    "expected_grid_rows": 88126,
+    "grid_rows_missing": 15049,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 8100,
+    "gaps_gt_1day": 1,
+    "largest_gaps": [
+      {
+        "after": "2024-10-17 16:35:00",
+        "before": "2024-10-19 12:10:00",
+        "length": "1 days 19:35:00"
+      }
+    ],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 1400.0,
+    "percentiles": {
+      "0.5": 77.0,
+      "0.9": 909.8,
+      "0.99": 1031.7240000000006,
+      "0.999": 1185.1695999999997
+    },
+    "zero_values": 26629,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 26629,
+      "1.6": 439,
+      "4.9": 243,
+      "3.3": 208,
+      "6.6": 142
+    },
+    "values_gt_1500_wm2": 0,
+    "values_gt_1300_wm2": 10,
+    "nonzero_flat_runs_ge_2h": 0,
+    "nonzero_flat_run_examples": []
+  },
+  {
+    "dataset": "poa_2025",
+    "file": "2107_irradiance_15m_data_2025.csv",
+    "columns": [
+      "utc_measured_on",
+      "poa_irradiance_o_149574"
+    ],
+    "timestamp_column": "utc_measured_on",
+    "rows": 105787,
+    "unparseable_timestamps": 0,
+    "first_ts": "2024-02-01 00:05:00",
+    "last_ts": "2025-12-31 23:45:00",
+    "timestamps_monotonic": true,
+    "duplicate_timestamps": 0,
+    "duplicate_timestamps_with_conflicting_values": 0,
+    "interval_counts_top": {
+      "0 days 00:05:00": 59049,
+      "0 days 00:15:00": 41438,
+      "0 days 00:10:00": 2966,
+      "0 days 00:20:00": 1436,
+      "0 days 00:30:00": 884,
+      "0 days 02:00:00": 2,
+      "0 days 01:30:00": 2,
+      "0 days 04:25:00": 1
+    },
+    "nominal_interval": "0 days 00:05:00",
+    "expected_grid_rows": 201597,
+    "grid_rows_missing": 95810,
+    "off_grid_timestamps": 0,
+    "gaps_gt_nominal": 46737,
+    "gaps_gt_1day": 2,
+    "largest_gaps": [
+      {
+        "after": "2024-10-17 23:35:00",
+        "before": "2024-10-19 19:10:00",
+        "length": "1 days 19:35:00"
+      },
+      {
+        "after": "2024-11-06 06:30:00",
+        "before": "2024-11-07 16:45:00",
+        "length": "1 days 10:15:00"
+      }
+    ],
+    "blank_or_nonnumeric_values": 0,
+    "nonnumeric_examples": [],
+    "negative_values": 0,
+    "min": 0.0,
+    "max": 1400.0,
+    "percentiles": {
+      "0.5": 44.167,
+      "0.9": 890.5,
+      "0.99": 1026.8139999999999,
+      "0.999": 1157.3283999999956
+    },
+    "zero_values": 42504,
+    "sentinel_counts": {},
+    "top_repeated_values": {
+      "0.0": 42504,
+      "1.6": 438,
+      "4.9": 226,
+      "3.3": 189,
+      "0.533": 137
+    },
+    "values_gt_1500_wm2": 0,
+    "values_gt_1300_wm2": 10,
+    "nonzero_flat_runs_ge_2h": 0,
+    "nonzero_flat_run_examples": []
+  }
+]

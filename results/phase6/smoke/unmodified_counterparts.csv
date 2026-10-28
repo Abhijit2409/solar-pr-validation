@@ -1,0 +1,13 @@
+window_id,family,local_reporting_date,run_key
+smoke-missing_daytime-2019-01-15,missing_daytime,2019-01-15,run000001
+smoke-timestamp_shift-2019-01-15,timestamp_shift,2019-01-15,run000007
+smoke-flatline_poa-2019-01-15,flatline_poa,2019-01-15,run000018
+smoke-missing_daytime-2019-04-15,missing_daytime,2019-04-15,run000025
+smoke-timestamp_shift-2019-04-15,timestamp_shift,2019-04-15,run000031
+smoke-flatline_poa-2019-04-15,flatline_poa,2019-04-15,run000042
+smoke-missing_daytime-2019-07-15,missing_daytime,2019-07-15,run000049
+smoke-timestamp_shift-2019-07-15,timestamp_shift,2019-07-15,run000055
+smoke-flatline_poa-2019-07-15,flatline_poa,2019-07-15,run000066
+smoke-missing_daytime-2019-10-15,missing_daytime,2019-10-15,run000073
+smoke-timestamp_shift-2019-10-15,timestamp_shift,2019-10-15,run000079
+smoke-flatline_poa-2019-10-15,flatline_poa,2019-10-15,run000090

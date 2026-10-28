@@ -1,0 +1,123 @@
+{
+  "inverter_ac_power_columns": 24,
+  "complete_rows": 631224,
+  "first_ts": "2017-11-01 00:00:00",
+  "last_ts": "2023-11-01 23:55:00",
+  "modal_step": "0 days 00:05:00",
+  "inverter_sum_max_kw": 721.61,
+  "meter_vs_inverter_sum_by_year": {
+    "2017": {
+      "rows": 1553,
+      "median_meter_over_inverter_sum": 0.9946,
+      "corr": 0.8178
+    },
+    "2018": {
+      "rows": 12380,
+      "median_meter_over_inverter_sum": 0.9851,
+      "corr": 0.7633
+    },
+    "2019": {
+      "rows": 12318,
+      "median_meter_over_inverter_sum": 0.9796,
+      "corr": 0.9779
+    },
+    "2020": {
+      "rows": 13018,
+      "median_meter_over_inverter_sum": 0.9765,
+      "corr": 0.9572
+    },
+    "2021": {
+      "rows": 12500,
+      "median_meter_over_inverter_sum": 0.9824,
+      "corr": 0.798
+    },
+    "2022": {
+      "rows": 12359,
+      "median_meter_over_inverter_sum": 0.9834,
+      "corr": 0.8955
+    },
+    "2023": {
+      "rows": 11114,
+      "median_meter_over_inverter_sum": 0.9796,
+      "corr": 0.974
+    }
+  },
+  "inverter_sum_vs_poa_corr_by_poa_label_shift_min": {
+    "2018-11_to_2019-02": {
+      "-20": {
+        "rows": 12492,
+        "corr": 0.8018
+      },
+      "-15": {
+        "rows": 12492,
+        "corr": 0.8124
+      },
+      "-10": {
+        "rows": 12492,
+        "corr": 0.8255
+      },
+      "-5": {
+        "rows": 12492,
+        "corr": 0.8428
+      },
+      "0": {
+        "rows": 12492,
+        "corr": 0.8799
+      },
+      "5": {
+        "rows": 12492,
+        "corr": 0.832
+      },
+      "10": {
+        "rows": 12492,
+        "corr": 0.8092
+      },
+      "15": {
+        "rows": 12492,
+        "corr": 0.7891
+      },
+      "20": {
+        "rows": 12492,
+        "corr": 0.7727
+      }
+    },
+    "2021-11_to_2022-02": {
+      "-20": {
+        "rows": 10976,
+        "corr": 0.9367
+      },
+      "-15": {
+        "rows": 10976,
+        "corr": 0.9441
+      },
+      "-10": {
+        "rows": 10976,
+        "corr": 0.9507
+      },
+      "-5": {
+        "rows": 10976,
+        "corr": 0.9586
+      },
+      "0": {
+        "rows": 10976,
+        "corr": 0.9768
+      },
+      "5": {
+        "rows": 10976,
+        "corr": 0.9452
+      },
+      "10": {
+        "rows": 10976,
+        "corr": 0.9255
+      },
+      "15": {
+        "rows": 10976,
+        "corr": 0.9073
+      },
+      "20": {
+        "rows": 10976,
+        "corr": 0.889
+      }
+    }
+  }
+}

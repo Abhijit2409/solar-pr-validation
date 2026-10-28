@@ -1,0 +1,67 @@
+{
+  "phase": 5,
+  "overall_status": "PASS",
+  "exit_code": 0,
+  "started_utc": "2026-10-27T02:49:00.309566+00:00",
+  "finished_utc": "2026-10-27T02:49:18.718355+00:00",
+  "experiment_version_used": "experiment-v2 (amends experiment-v1; see docs/amendments.md)",
+  "development_period": [
+    "2018-02-01",
+    "2020-02-01"
+  ],
+  "evaluation_period_touched": false,
+  "checks": {
+    "PASS": 11
+  },
+  "pytest": "69 passed in 14.41s",
+  "development_status_counts": {
+    "basic": {
+      "CHECKS_PASSED": 574,
+      "REVIEW_REQUIRED": 123,
+      "INSUFFICIENT_DATA": 33
+    },
+    "improved": {
+      "CHECKS_PASSED": 572,
+      "REVIEW_REQUIRED": 123,
+      "INSUFFICIENT_DATA": 35
+    }
+  },
+  "timing": {
+    "inconclusive_days": 575,
+    "conclusive_days": 155,
+    "lag_differences_vs_prototype": 39,
+    "cause": "eligible-interval gate: prototype used 5-min sub-interval elevation; implementation uses in-window meter membership (A3); all on inconclusive days"
+  },
+  "code_sha256": {
+    "src/evidence.py": "f07e07c23861b6f0289d232b74589adafe4dfd8fa4092b21ab770d9e2bec92e1",
+    "src/checks_basic.py": "ec88eb9a0b39c3c1bd9c379f51dae2430a536341c0a9bb4f9e7fce64f4d6f8a1",
+    "src/checks_improved.py": "ba0f68fed5abf315d456bb082c79f38eedae966755bb8a84cdc9406e8cd81b96",
+    "src/detect.py": "5cdc68e62d2f69038397430f28a8a8fe4b3e6dc07c9fa5119915da2051d0cea5",
+    "src/detector_inputs.py": "c2c882fe2882c1697473854e4871823bc27210aa079c62547a0f77040d53f4ca",
+    "src/run_phase5.py": "36e841c95786434e57a5ea9fcf5d9a072bd4bf8564d35da2be030e93b6b2ce1a",
+    "src/validate_phase5.py": "77058a46285c3979c663e45c19bc3b1741be817af227afb8401e6cb70d3e68d0",
+    "src/pair_intervals.py": "76b74ad47731493a7a64d48a08fcb758c793626ba6aa6539092144330c93ddce",
+    "src/metrics.py": "4ef7ef8771f82d1bfd0eeca22c833d504201dc3cf4f61accfde449498c0c3e77"
+  },
+  "config_sha256": {
+    "config/experiment.yaml": "1c5b9ae1fa999775fb996979712582ccbfbbee7bdc6681861443ed27ad7c1cdc",
+    "config/experiment_v2.yaml": "b4fb75fd4dd18fa83f6acd058e5524918bdbbbbc4f442f3bd46651b16060caf9",
+    "config/metric_definition.yaml": "ce4c409c6c50045cddf6306946668766c31ca90cbefb944b34af8a7cc623430f",
+    "config/data_structure.yaml": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52"
+  },
+  "test_files_sha256": {
+    "tests/conftest.py": "69d934d9508987667ec8ca80aedf02aec7db36ce3bdde40054607a58cdb6f736",
+    "tests/test_detectors.py": "cd8463bfbc1a7e1690aac26801671c5f2068c89c4859dd45b0a707d0bc0998ab",
+    "tests/test_metrics.py": "e64ed4ea1bfa30727e1e8c33dd9ffe3a0001b843f490cb21760cd7b2ee1831e2",
+    "tests/test_pipeline.py": "68f5f90a76f448c725914ce66285a19b8a14757588ed31fce21db8c78ae02b62",
+    "tests/test_timestamps.py": "3cefa81bef5e981aaaa5b17879b5f53408e2b096b6d67cbfebf3ba53c2d97503",
+    "tests/test_validate_exit.py": "a3a3ce632d21e814d307d030e2d315fbd1ee1899e322dec4e7a87d3332d01ae3"
+  },
+  "versions": {
+    "python": "3.11.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "pvlib": "0.16.1"
+  },
+  "note": "Not implementation freeze B: injector and evaluator are Phase 6."
+}

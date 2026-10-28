@@ -1,0 +1,29 @@
+{
+  "phase": 6,
+  "overall_status": "PASS",
+  "exit_code": 0,
+  "started_utc": "2026-10-27T03:04:48.908599+00:00",
+  "finished_utc": "2026-10-27T03:05:45.824033+00:00",
+  "experiment_version_active": "experiment-v3",
+  "pytest": "117 passed in 53.07s",
+  "checks": {
+    "PASS": 8
+  },
+  "smoke": {
+    "label": "DEVELOPMENT-PERIOD SMOKE CASES (not evaluation)",
+    "days": [
+      "2019-01-15",
+      "2019-04-15",
+      "2019-07-15",
+      "2019-10-15"
+    ],
+    "windows": 12,
+    "detector_runs": 96,
+    "cases": 84,
+    "experiment_version": "experiment-v3"
+  },
+  "freeze_b_manifest": "results/phase6/implementation_freeze_manifest.json",
+  "freeze_b_manifest_sha256": "4864e23a04cce9814275132ccd63be63a89439e8795dc00fa31b4a79d8b5d393",
+  "evaluation_executed": false,
+  "validator_sha256": "88ff3cf2648d220761c1b9f590a0f5b2ce342e1b2b9aca42840be7cd32d73ee4"
+}

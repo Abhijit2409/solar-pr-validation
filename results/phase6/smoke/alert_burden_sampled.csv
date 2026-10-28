@@ -1,0 +1,3 @@
+population,method,unique_days,unconfirmed_alert_days,unconfirmed_alert_share,reporting_coverage_retained,review_days,insufficient_days
+sampled windows (unique unmodified days),basic,4,1,0.25,0.75,0,1
+sampled windows (unique unmodified days),improved,4,1,0.25,0.75,0,1

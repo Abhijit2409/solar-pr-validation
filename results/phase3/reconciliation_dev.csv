@@ -1,0 +1,25 @@
+item,value
+expected meter intervals (dev period),70080.0
+outside reporting window,37524.0
+inside reporting window,32556.0
+  fully paired,31709.0
+  excluded,847.0
+    excluded: METER_INVALID,1.0
+    excluded: POA_MISSING,846.0
+window intervals that are DST-ambiguous (must be 0),0.0
+POA observations used in pairs (3 per pair),95127.0
+sum interval E_AC kWh (pairs),2548163.809037
+sum daily E_AC kWh,2548163.809037
+sum interval H_POA kWh/m2 (pairs),3876.973464
+sum daily H_POA kWh/m2,3876.973464
+local reporting days,730.0
+days CHECKS_PASSED,515.0
+days INSUFFICIENT_DATA,35.0
+days REVIEW_REQUIRED,180.0
+paired window zeros WITHOUT daylight-zero flag (withhold nothing),542.0
+  days affected,226.0
+  of which CHECKS_PASSED,50.0
+  median share of day's paired H on CHECKS_PASSED days,0.00296
+  max pp PR difference on CHECKS_PASSED days (diagnostic comparison),1.29
+passed days with H >= 3 kWh/m2 and reported PR > 0.85,33.0
+passed days with reported PR > 0.85: max H kWh/m2,7.295

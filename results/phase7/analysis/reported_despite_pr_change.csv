@@ -1,0 +1,10 @@
+method,family,scenario_class,faulted_cases_still_reported,abs_pp_ge_0_5,abs_pp_ge_1,abs_pp_ge_5,max_abs_pp
+basic,flatline_poa,primary,138,83,69,33,85.61021199207943
+basic,flatline_poa,secondary,28,27,27,16,26.493529548088468
+basic,missing_daytime,primary,44,23,7,0,2.16346619597122
+basic,timestamp_shift,primary,146,51,30,1,5.414098387221678
+basic,timestamp_shift,secondary,107,36,13,0,2.7557211157706707
+improved,flatline_poa,primary,28,4,3,0,2.652318965470524
+improved,missing_daytime,primary,37,18,6,0,2.16346619597122
+improved,timestamp_shift,primary,113,34,20,1,5.414098387221678
+improved,timestamp_shift,secondary,82,20,7,0,2.7557211157706707

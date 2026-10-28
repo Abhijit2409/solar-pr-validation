@@ -1,0 +1,9 @@
+check_id,check,result,measured
+P6-01,experiment-v1 freeze files unchanged; commits 2952d87 and f1ff436 present,PASS,23/23
+P6-02,Phase 5 code and configs (incl. experiment-v2) unchanged,PASS,all match
+P6-03,"experiment-v3 keeps every v2 value; only version, amendment notes, injection rules and freeze notes added",PASS,changed []; unexpected added []
+P6-04,pytest suite passes (incl. real freeze-B verification test),PASS,117 passed in 53.07s
+P6-05,"Smoke cases are development-only, disjoint from the frozen sample, and detector outputs carry no truth columns",PASS,"12 windows, 84 cases, statuses {'APPLIED': 84}"
+P6-06,"Freeze B verifies (36 files, 5 processed tables, versions) and does not hash itself",PASS,verified
+P6-07,No evaluation case executed (results/phase7 absent),PASS,absent
+P6-08,Raw files unchanged,PASS,22/22

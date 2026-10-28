@@ -1,0 +1,20 @@
+{
+  "overall_status": "PASS",
+  "exit_code": 0,
+  "started_utc": "2026-10-27T01:57:23.451572+00:00",
+  "finished_utc": "2026-10-27T01:57:54.606819+00:00",
+  "result_counts": {
+    "PASS": 13
+  },
+  "pytest": "41 passed in 5.88s",
+  "file_sha256": {
+    "src/validate_phase3.py": "f3b059db5ee8b9ec8e7c5618402130ff6ff2ae71d82a370f3091d95596ff8ddf",
+    "src/independent_check_phase3.py": "3a3554b363a9fbab6f623f47f02a4659c593abe8184c44d564fdb9ed7720142e",
+    "src/run_phase3.py": "d77dc8c488d43826a109f32799724f7e14de91fd74823b6f096cc18644f9a24b",
+    "src/pair_intervals.py": "76b74ad47731493a7a64d48a08fcb758c793626ba6aa6539092144330c93ddce",
+    "src/metrics.py": "4ef7ef8771f82d1bfd0eeca22c833d504201dc3cf4f61accfde449498c0c3e77",
+    "src/timestamps.py": "7802c40984cb89c3a88fa8dcde8f35099abf7e7d6966ae5fed22723f58d80cf5",
+    "src/ingest.py": "8dec9f466e8eb2d4bc769e7ee6326def658b846b2c47354c0141a2a763565ea2",
+    "config/metric_definition.yaml": "ce4c409c6c50045cddf6306946668766c31ca90cbefb944b34af8a7cc623430f"
+  }
+}

@@ -1,0 +1,9 @@
+# Versions exercised in Phases 1-2 (project .venv, Python 3.11.0)
+pandas==3.0.5
+numpy==2.4.6
+pyarrow==25.0.1
+requests==2.34.2
+pvlib==0.16.1
+PyYAML==6.0.3
+pytest==9.1.1
+# installed as pvlib dependencies: scipy==1.17.1, h5py==3.16.0

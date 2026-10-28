@@ -1,0 +1,17 @@
+{
+  "daylight_zero_runs": 43,
+  "daylight_zero_intervals": 343,
+  "runs_followed_by_value_gt_ceiling": 1,
+  "intervals_in_catch_up_runs": 2,
+  "ceiling_kw_used": 720.0,
+  "catch_up_examples": [
+    {
+      "file": "meter_2017_2023",
+      "start": "2018-02-18 12:00:00",
+      "intervals": "2",
+      "next_nonzero_kw": "1783.68",
+      "next_nonzero_ts": "2018-02-18 12:30:00",
+      "catch_up_pattern": "True"
+    }
+  ]
+}

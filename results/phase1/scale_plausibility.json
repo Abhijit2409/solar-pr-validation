@@ -1,0 +1,71 @@
+{
+  "matched_15min_rows": 196168,
+  "corr_meter_vs_poa": 0.9757,
+  "rows_poa_900_1100": 13340,
+  "median_meter_kw_when_poa_900_1100": 623.4,
+  "median_meter_kw_per_dc_kw_when_poa_900_1100": 0.698,
+  "meter_kw_gt_0_when_poa_eq_0": 3,
+  "poa_gt_200_when_meter_le_0": 341,
+  "first_meter_value_gt_1kw": "2017-01-16 14:00:00",
+  "first_poa_value_gt_1wm2": "2017-11-01 09:00:00",
+  "meter_rows_and_max_by_year": {
+    "2017": {
+      "rows": 35035,
+      "max_kw": 670.08
+    },
+    "2018": {
+      "rows": 35036,
+      "max_kw": 1783.68
+    },
+    "2019": {
+      "rows": 35036,
+      "max_kw": 705.92
+    },
+    "2020": {
+      "rows": 35132,
+      "max_kw": 707.2
+    },
+    "2021": {
+      "rows": 34844,
+      "max_kw": 707.2
+    },
+    "2022": {
+      "rows": 35032,
+      "max_kw": 708.48
+    },
+    "2023": {
+      "rows": 29947,
+      "max_kw": 707.84
+    }
+  },
+  "poa_rows_and_max_by_year": {
+    "2017": {
+      "rows": 2575,
+      "max_wm2": 1031.8
+    },
+    "2018": {
+      "rows": 94927,
+      "max_wm2": 1400.0
+    },
+    "2019": {
+      "rows": 104918,
+      "max_wm2": 1400.0
+    },
+    "2020": {
+      "rows": 88042,
+      "max_wm2": 1400.0
+    },
+    "2021": {
+      "rows": 87252,
+      "max_wm2": 1390.6
+    },
+    "2022": {
+      "rows": 80022,
+      "max_wm2": 1400.0
+    },
+    "2023": {
+      "rows": 73283,
+      "max_wm2": 1400.0
+    }
+  }
+}

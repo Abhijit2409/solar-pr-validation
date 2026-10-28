@@ -1,0 +1,207 @@
+# experiment-v2: AMENDMENT of experiment-v1 (config/experiment.yaml, frozen at commit 2952d87,
+# preserved unchanged). Made in Phase 5, before any evaluation case was created or run.
+# No threshold, period, fault, seed or window sample changed. Details: docs/amendments.md.
+experiment_version: experiment-v2
+amends: experiment-v1
+supersedes_for_experiment: "config/metric_definition.yaml eligibility + flag_policy (phase3-v1)"
+amendments:
+  A1: headline detection rate includes INCONCLUSIVE cases in the denominator; conclusive-only rate and
+      timing-check applicability are secondary; numerators and denominators always shown
+  A2: zero-output materiality describes PR sensitivity to including vs excluding zero intervals; it does not
+      bound true performance error or establish that the readings are faulty
+  A3: timing returns INCONCLUSIVE for a search-boundary best lag or undefined correlation; deterministic tie
+      rule; eligible intervals are POA intervals inside in-window meter intervals
+  A4: catch-up (B5a), time/duplicate (B3) and sampling (B4) evidence recomputed from the supplied observations
+  A5: B5d evaluated on paired in-window meter intervals (meter-interval mean clear-sky POA; any POA sub-interval = 0)
+  A6: stale runs counted in readings; span = readings x 5 min; runs break at gaps, unusable readings and window edges
+  A7: CHECKS_PASSED with TIMING_INCONCLUSIVE carries an explicit limitation (timing not verified)
+
+periods:                                   # local reporting dates, half-open [start, end)
+  development:
+    start_local_date: "2018-02-01"
+    end_local_date: "2020-02-01"
+  evaluation:
+    start_local_date: "2020-02-01"
+    end_local_date: "2023-11-01"
+  disclosure: >
+    The evaluation period was structurally profiled in Phases 1-2 (gaps, timing, zeros, completeness)
+    and its structural eligibility was inspected in Phase 4. It is NOT completely unseen raw data.
+    No evaluation PR, PR distribution or detector output has been computed.
+
+shared:                                    # identical for both methods
+  metric_config: config/metric_definition.yaml     # capacity 893.0 kW, G_STC 1, units, window > 5 deg, pairing
+  metric_version: phase3-v1
+  capacity_kw: 893.0
+  reporting_window_min_solar_elevation_deg: 5.0
+  pairing: exact 3 x 5-min POA per 15-min meter interval; any unusable sub-interval excludes the whole interval
+  invalid_inputs: excluded from pairs (Phase 2 screening bounds)
+  min_paired_irradiation_kwh_m2: 0.5      # minimum denominator -> INSUFFICIENT_DATA LOW_IRRADIATION
+  unavailable_pr: null (NO_PAIRED_DATA / PR_UNAVAILABLE / INVALID_CAPACITY -> INSUFFICIENT_DATA)
+  status_precedence: [INSUFFICIENT_DATA, REVIEW_REQUIRED, CHECKS_PASSED]
+
+methods:
+  basic:
+    description: completeness (unweighted), range, metadata, duplicate/time, sampling, zero-output plausibility
+    min_time_coverage: 0.90                # paired hours / window hours -> INSUFFICIENT_DATA LOW_TIME_COVERAGE
+    range_check: invalid value in window -> REVIEW_REQUIRED INVALID_INPUT_IN_WINDOW; negative -> NEGATIVE_INPUT_IN_WINDOW
+    time_check: ambiguous / conflicting / duplicate interval in window -> REVIEW_REQUIRED UNRESOLVED_TIME_IN_WINDOW
+    sampling_check:
+      nominal_step_min: {ac_power: 15, poa_irradiance: 5}
+      rule: any in-window observation off the nominal grid -> REVIEW_REQUIRED IRREGULAR_SAMPLING
+    catch_up_flag: SUSPECTED_LOGGER_ARTEFACT A-CATCHUP in window -> REVIEW_REQUIRED SUSPECTED_CATCH_UP
+    catch_up_recomputed:                   # A4: same rule as Phase 2 A-CATCHUP, evaluated on supplied observations
+      spike: meter value above the AC screening upper bound (invalid high)
+      preceded_by: ">= 1 contiguous observed meter zeros that are daylight zeros"
+      daylight_zero: solar elevation at interval midpoint > 10 deg, or any usable POA sub-interval > 200 W/m2
+      in_window_if: spike or any of its preceding zeros lies in the reporting window
+    zero_output_policy:
+      covers: entire reporting window (solar elevation > 5 deg)
+      recorded_zero: every observed zero stays a valid numerical observation inside E_AC
+      suspicious_meter_zero_min_poa_wm2: 200      # paired zero while POA mean >= 200 -> SUSPICIOUS_ZERO_OUTPUT
+      material_zero_share_of_h: 0.01              # paired zeros carry >= 1% of day's paired H -> MATERIAL_ZERO_OUTPUT
+      suspicious_poa_zero_min_clearsky_wm2: 200   # POA reads 0 while clear-sky POA >= 200 -> SUSPICIOUS_POA_ZERO
+      suspicious_poa_zero_scope: paired in-window meter intervals; meter-interval mean clear-sky POA; any POA sub-interval exactly 0   # A5
+      materiality_meaning: PR sensitivity to including vs excluding zero intervals; not a bound on true error   # A2
+      phase2_daylight_zero_flag: context          # A-DAYZERO no longer withholds by itself
+      confirmed_fault: never asserted by this policy
+  improved:
+    inherits: basic                        # improved = all basic checks + the three below
+    midday_completeness:
+      min_clearsky_weighted_coverage: 0.90 # -> INSUFFICIENT_DATA LOW_CLEARSKY_WEIGHTED_COVERAGE
+    poa_stale:
+      tolerance_wm2: 0.05                  # POA resolution is 0.1 W/m2: identical consecutive readings
+      min_run_values: 6                    # >= 6 consecutive identical 5-min values (30 min) -> REVIEW POA_STALE
+      eligibility: usable POA intervals inside the reporting window; run must be contiguous 5-min steps
+      run_counting: readings (5-min values); elapsed span = readings x 5 min; 6 readings = 30 min   # A6
+      run_breaks: missing reading, unusable (null/invalid) reading, non-contiguous step, reporting-window edge
+      hold_last_note: a hold-last block of N readings plus the preceding original reading forms a run of N + 1
+    timing:
+      reference: clear-sky POA model (pvlib Ineichen, isotropic, 25 deg tilt, metadata azimuth 180 deg)
+      lag_definition: k minimising mismatch of measured POA at label L with model averaged over [L+k, L+k+5)
+      sign_convention: injected shift +s (POA timestamps s minutes later) moves best lag by -s
+      search_range_min: 90
+      min_intervals: 60                    # in-window 5-min intervals with model POA > min_model_wm2
+      min_model_wm2: 50
+      min_corr: 0.998                      # clear-day evidence; otherwise TIMING_INCONCLUSIVE (context only)
+      energy_ratio_range: [0.85, 1.15]
+      baseline_lag_min: -11                # development median on conclusive days (not a correction)
+      threshold_min: 8                     # |best_lag - baseline| >= 8 -> REVIEW_REQUIRED TIMING_INCONSISTENT
+      evidence_scope: single reporting day
+      latency: retrospective; available after the reporting day ends (no multi-day pooling)
+      objective: maximise Pearson correlation between measured POA and lagged model means (1-min lag steps)   # A3
+      eligible_intervals: POA 5-min intervals inside in-window meter intervals, usable, model mean > min_model_wm2
+      tie_rule: among lags whose correlation equals the maximum (rounded to 12 decimals) choose smallest |k|, then smallest k
+      inconclusive_if: [fewer than min_intervals, correlation undefined (constant series), best lag at +-search_range_min,
+                        corr_at_best < min_corr, energy ratio outside range]
+      passed_day_limitation: CHECKS_PASSED with TIMING_INCONCLUSIVE is reported as "timing not verified"   # A7
+
+# Machine-readable rule table (docs/experiment_protocol.md section 2). improved = basic + improved_only.
+rule_table:
+  - {id: S1, class: shared, reason_code: INVALID_CAPACITY, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: S5, class: shared, reason_code: NO_PAIRED_DATA, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: S5b, class: shared, reason_code: PR_UNAVAILABLE, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: S6, class: shared, reason_code: LOW_IRRADIATION, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: B1, class: basic, reason_code: LOW_TIME_COVERAGE, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: B2, class: basic, reason_code: INVALID_INPUT_IN_WINDOW, status: REVIEW_REQUIRED, chosen: before}
+  - {id: B2b, class: basic, reason_code: NEGATIVE_INPUT_IN_WINDOW, status: REVIEW_REQUIRED, chosen: before}
+  - {id: B3, class: basic, reason_code: UNRESOLVED_TIME_IN_WINDOW, status: REVIEW_REQUIRED, chosen: before}
+  - {id: B4, class: basic, reason_code: IRREGULAR_SAMPLING, status: REVIEW_REQUIRED, chosen: before}
+  - {id: B5a, class: basic, reason_code: SUSPECTED_CATCH_UP, status: REVIEW_REQUIRED, chosen: before}
+  - {id: B5b, class: basic, reason_code: SUSPICIOUS_ZERO_OUTPUT, status: REVIEW_REQUIRED, chosen: after_development}
+  - {id: B5c, class: basic, reason_code: MATERIAL_ZERO_OUTPUT, status: REVIEW_REQUIRED, chosen: after_development}
+  - {id: B5d, class: basic, reason_code: SUSPICIOUS_POA_ZERO, status: REVIEW_REQUIRED, chosen: after_development}
+  - {id: I1, class: improved_only, reason_code: LOW_CLEARSKY_WEIGHTED_COVERAGE, status: INSUFFICIENT_DATA, chosen: before}
+  - {id: I2, class: improved_only, reason_code: POA_STALE, status: REVIEW_REQUIRED, chosen: after_development}
+  - {id: I3, class: improved_only, reason_code: TIMING_INCONSISTENT, status: REVIEW_REQUIRED, chosen: after_development}
+  - {id: I3c, class: improved_only, reason_code: TIMING_INCONCLUSIVE, status: context, chosen: after_development}
+
+faults:
+  missing_daytime:
+    primary:
+      channel: poa_irradiance
+      representation: rows_removed          # observation becomes EXPECTED_ROW_MISSING
+      durations_min: [30, 60, 120, 240]
+      placement: one centre time per window, uniform over in-window meter intervals where the block fits; all
+        durations nested around the same centre; block edges on the 15-min meter grid
+      seed: 4101
+    secondary:
+      label: explicit_nulls                  # row kept, value null -> SOURCE_NULL
+      durations_min: [120]
+      placement: same centre as primary
+  timestamp_shift:
+    primary:
+      channel: poa_irradiance                # one-channel shift
+      shifts_min: [-60, -30, -15, 15, 30, 60]
+      block: all POA rows with original local date in [D-1, D+2); evaluated day D
+      collisions: rows moved onto an existing timestamp outside the block are kept and flagged as duplicates
+        (night, outside D's window); no row dropped
+      justification: 15 = meter cadence and 3 POA steps; 30 = half-hour logger offset; 60 = DST/timezone error
+      seed: 4102
+    secondary:
+      label: whole_file_shift                # meter and POA shifted together
+      shifts_min: [-60, -30, 30, 60]
+  flatline_poa:
+    primary:
+      channel: poa_irradiance
+      value_mode: hold_last                  # last usable POA value before the block (in range by construction)
+      durations_min: [15, 30, 60, 120, 240]
+      placement: block start uniform over in-window 5-min intervals with solar elevation >= 15 deg where the
+        block fits in the window; nested durations share the start
+      seed: 4103
+    secondary:
+      label: fixed_value_600
+      value_wm2: 600
+      durations_min: [120]
+  unscorable_if: block does not fit the window, or hold_last has no usable preceding value
+
+window_selection:
+  unit: one local reporting day in the evaluation period (with neighbours D-1, D+1 for shifts)
+  eligibility:                               # structural only; independent of any detector result
+    rules:
+      - in evaluation period
+      - not a 23 h or 25 h DST day
+      - every in-window meter interval COVERED with OBSERVED_VALID/OBSERVED_ZERO
+      - every POA interval inside in-window meter intervals COVERED with OBSERVED_VALID/OBSERVED_ZERO
+      - neighbouring days D-1 and D+1 have data
+    season_of_month: {12: DJF, 1: DJF, 2: DJF, 3: MAM, 4: MAM, 5: MAM, 6: JJA, 7: JJA, 8: JJA, 9: SON, 10: SON, 11: SON}
+    population_label: eligible public-data windows (not verified fault-free)
+  seasons: [DJF, MAM, JJA, SON]
+  windows_per_family_per_season: 8
+  families_in_draw_order: [missing_daytime, timestamp_shift, flatline_poa]
+  disjoint_across_families: true
+  sampling_seed: 20261027
+
+scoring:
+  unit: case = window x fault family x scenario x severity; correlated severities share a window_id
+  per_case_per_method:
+    ALREADY_WITHHELD: unmodified counterpart not CHECKS_PASSED (scored separately; never counted as a new detection)
+    DETECTED_SPECIFIC: unmodified CHECKS_PASSED; faulted not CHECKS_PASSED with a fault-specific reason
+    WITHHELD_OTHER: unmodified CHECKS_PASSED; faulted not CHECKS_PASSED only through other reasons
+    INCONCLUSIVE: unmodified CHECKS_PASSED; faulted CHECKS_PASSED and the fault-specific check was inconclusive
+    MISSED: unmodified CHECKS_PASSED; faulted CHECKS_PASSED (check conclusive or no specific check)
+    UNSCORABLE: injection could not be applied as specified
+  fault_specific_reasons:
+    missing_daytime: [LOW_TIME_COVERAGE, LOW_CLEARSKY_WEIGHTED_COVERAGE, NO_PAIRED_DATA]
+    timestamp_shift: [TIMING_INCONSISTENT]
+    flatline_poa: [POA_STALE]
+  rates:                                   # A1
+    headline_detection_rate: DETECTED_SPECIFIC / (scorable - ALREADY_WITHHELD)   # INCONCLUSIVE stays in the denominator
+    conclusive_only_detection_rate: DETECTED_SPECIFIC / (scorable - ALREADY_WITHHELD - INCONCLUSIVE)   # secondary
+    timing_applicability: share of (scorable - ALREADY_WITHHELD) shift cases where the timing check was conclusive
+    withheld_rate: (DETECTED_SPECIFIC + WITHHELD_OTHER) / (scorable - ALREADY_WITHHELD)
+    always_report: numerators, denominators, unique windows, per severity
+  pr_effect:
+    pp_difference: 100 * (faulted diagnostic PR - unmodified diagnostic PR)
+    relative_change: 100 * (faulted / unmodified - 1) only if unmodified PR finite and > 0
+    unavailable: counted, never imputed
+  unmodified_alert_burden: share of unmodified eligible days not CHECKS_PASSED per method, reported as unconfirmed alerts
+    (sampled windows and full eligible population); no false-positive rate without verified labels
+  reporting_coverage_retained: share of unmodified eligible days CHECKS_PASSED per method
+  latency: all checks are same-day and retrospective (after the reporting day ends)
+  comparison: both methods at frozen settings; the improved method is not required to win
+
+freeze:
+  checkpoint_A_specification: end of Phase 4 (this file, protocol, metric config, data manifests, window sample)
+  checkpoint_B_implementation: after Phases 5-6, before Phase 7 (detector, injector, evaluator code + tests, hashes)
+  amendments: preserve original; new version and disclosure for any change
+  experiment_v2_recorded: Phase 5 local commit (before any evaluation case); experiment-v1 remains at commit 2952d87

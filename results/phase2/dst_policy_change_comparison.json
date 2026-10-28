@@ -1,0 +1,14 @@
+{
+  "purpose": "Effect of the ambiguous-timestamp policy change (no resolution by occurrence count/file order) and evidence-wording change on real outputs",
+  "before_manifest": "results/phase2/run_manifest_before_dst_fix.json",
+  "after_manifest": "results/phase2/run_manifest.json",
+  "table_content_identical": {
+    "site_metadata": true,
+    "observations": true,
+    "expected_intervals": true,
+    "structural_quality_flags": false,
+    "sampling_segments": true
+  },
+  "structural_quality_flags_difference": "1 row: INVALID_VALUE evidence text reworded from 'physical limits' to 'project screening bounds'; all other cells identical (235,999 rows compared)",
+  "conclusion": "The DST policy change affects no real-data row: no v1 file contains a repeated local timestamp. It only changes the previously untested edge case, now covered by regression tests."
+}

@@ -1,0 +1,70 @@
+{
+  "timing_development": {
+    "dev_days": 721,
+    "conclusive_days": 155,
+    "baseline_median_lag_min": -11.0,
+    "lag_iqr_min": [
+      -12.0,
+      -10.5
+    ],
+    "flagged_at_threshold": {
+      "5": 2,
+      "6": 1,
+      "8": 0,
+      "10": 0
+    },
+    "conclusive_days_by_month": {
+      "01": 1,
+      "02": 3,
+      "03": 8,
+      "04": 1,
+      "05": 9,
+      "06": 39,
+      "07": 37,
+      "09": 23,
+      "10": 25,
+      "11": 9
+    }
+  },
+  "zero_policy_pr_effect_on_basic_passed_days": {
+    "days_with_any_zero": 107,
+    "max_zero_share_of_h": 0.009781794226907746,
+    "median_pp_difference": -0.28754175062053466,
+    "max_abs_pp_difference": 0.6834292645817475
+  },
+  "evaluation_structural_eligibility": {
+    "days_in_period": 1369,
+    "eligible": 1270,
+    "exclusions_overlapping": {
+      "excl_not_in_eval_period": 0,
+      "excl_dst_transition_day": 7,
+      "excl_incomplete_window_meter": 3,
+      "excl_incomplete_window_poa": 87,
+      "excl_missing_neighbour_day": 6
+    },
+    "eligible_by_season": {
+      "DJF": 284,
+      "JJA": 317,
+      "MAM": 349,
+      "SON": 320
+    }
+  },
+  "evaluation_sample": {
+    "unique_windows": 96,
+    "by_family_season": {
+      "flatline_poa/DJF": 8,
+      "flatline_poa/JJA": 8,
+      "flatline_poa/MAM": 8,
+      "flatline_poa/SON": 8,
+      "missing_daytime/DJF": 8,
+      "missing_daytime/JJA": 8,
+      "missing_daytime/MAM": 8,
+      "missing_daytime/SON": 8,
+      "timestamp_shift/DJF": 8,
+      "timestamp_shift/JJA": 8,
+      "timestamp_shift/MAM": 8,
+      "timestamp_shift/SON": 8
+    }
+  },
+  "inspected_in_evaluation_period": "Phase 2 coverage_status, resolved_observation_state, local_day_length_h and solar geometry only; no values, PR, flags or detector outputs"
+}

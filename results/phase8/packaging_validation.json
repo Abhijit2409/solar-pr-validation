@@ -1,0 +1,104 @@
+{
+  "phase": 8,
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "check_id": "P8-01",
+      "check": "run1 outputs unchanged (Phase 7 hashes)",
+      "result": "PASS",
+      "measured": "11/11"
+    },
+    {
+      "check_id": "P8-02",
+      "check": "Implementation freeze B verifies",
+      "result": "PASS",
+      "measured": "verified"
+    },
+    {
+      "check_id": "P8-03",
+      "check": "Claim register reproduces exactly from saved run1 outputs",
+      "result": "PASS",
+      "measured": "byte-identical regeneration"
+    },
+    {
+      "check_id": "P8-04",
+      "check": "Figure values equal the claim register and saved outputs; PNG >= 1600 px wide; fonts >= 9 pt; SVG exported",
+      "result": "PASS",
+      "measured": "89.3% -> 174.9%, png [1950, 1170]"
+    },
+    {
+      "check_id": "P8-05",
+      "check": "Every headline number appears consistently in memo, README, table and walkthrough",
+      "result": "PASS",
+      "measured": "all present"
+    },
+    {
+      "check_id": "P8-06",
+      "check": "Document numbers equal claim-register values",
+      "result": "PASS",
+      "measured": "equal"
+    },
+    {
+      "check_id": "P8-07",
+      "check": "No wrong units (pp written as %), no claim that all timing faults were detected, no savings, production-readiness, superiority or affiliation claims, no secondary numbers in headlines",
+      "result": "PASS",
+      "measured": "none"
+    },
+    {
+      "check_id": "P8-08",
+      "check": "PR changes labelled in percentage points; PR values in %",
+      "result": "PASS",
+      "measured": "labels present"
+    },
+    {
+      "check_id": "P8-09",
+      "check": "Correlated severities, window counts and one-site/synthetic scope disclosed",
+      "result": "PASS",
+      "measured": "present"
+    },
+    {
+      "check_id": "P8-10",
+      "check": "Primary and secondary results kept distinct (secondary only by reference)",
+      "result": "PASS",
+      "measured": "secondary referenced, not mixed"
+    },
+    {
+      "check_id": "P8-11",
+      "check": "Walkthrough about three minutes (380-520 words); memo 350-450 words (word count only; page fit not claimed)",
+      "result": "PASS",
+      "measured": "walkthrough 483 words, memo 425 words"
+    },
+    {
+      "check_id": "P8-12",
+      "check": "PR plausibility described only as absent / possible future safeguard; rule table confirms no PR-value rule",
+      "result": "PASS",
+      "measured": "PR-value rules: none"
+    }
+  ],
+  "file_sha256": {
+    "presentation/executive_memo.md": "f9583511ebcb6a8b56ed03c07f1ebb81549a78e6a5e335758197d17020df7760",
+    "README.md": "ca9b664adf8e1f1ce2848c35ea91092d9308e3f0e12334dec4307ed7b32e190a",
+    "presentation/results_table.md": "c8dcbbfd77ac4f41ee4289e424df3e57f3e3d83bd860bf3661c8b86e2ca5c867",
+    "presentation/walkthrough.md": "e17ec45b0dfd1203df166e7ef12fd0f71f711e50f148f8c029aba7ce32150a17",
+    "presentation/figure_flatline_example.png": "925f38de56cd9b75d6428f4a8b1710921d59c7ee8a0c18f0351506c40e73b2bb",
+    "presentation/figure_flatline_example.svg": "9eab65a9f12999f1aa6e104f786f23670a965d6bb141cefce076f0ea1960ccc2",
+    "results/phase8/claim_register.csv": "f352ece5dee9c7b4c9fa96f03beba288fd3952c335db7c72dd9358887e999ab6",
+    "results/phase8/results_table.csv": "624d988e96989f7e87677c7f04d6f375c3a16b6690e56a26d18607e11b1698c1",
+    "results/phase8/figure_checks.json": "3ef450eb58516c9defbb081083cfd084a093cfad619b7e65a7c4f0a25c57a690",
+    "docs/revision_log.md": "f9a903ef3b36b3c241a9f4cdb1d30806f05474c22fb4819a743396945ed3252b",
+    "src/phase8_figure.py": "2fd4a86344f79a9741b6243ad224271d40adacb1a34ef05c866301e608d69d7d",
+    "src/phase8_claims.py": "5590c5306f01a3dcfabb336622a618a70b8688468cbeda01f5be20a15f703f4b"
+  },
+  "validator_sha256": "bfef77828c79c0daef43e7b89274e6c57b44905984297fadb8760b4a66664f84",
+  "revision": "presentation revision after external review (figure title, memo length, case/day terminology, PR explanation, framing); experiment and run1 unchanged",
+  "figure_visual_review": {
+    "by": "assistant (not a human review)",
+    "title_single_line": true,
+    "clipped_labels": false,
+    "overlaps": false,
+    "units_correct": true,
+    "fault_window_local": "11:55-15:55 (truth block 19:55-23:55 UTC)",
+    "smallest_text_pt": 9.5
+  },
+  "note": "Automated consistency checks plus the visual figure review recorded above."
+}

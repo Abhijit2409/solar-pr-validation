@@ -1,0 +1,12 @@
+data/raw/pvdaq/
+data/raw/**/*.part
+data/processed/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+results/phase2/ingest_stdout.txt
+results/phase2/validate_stdout.txt
+results/phase3/validate_phase3_stdout.txt
+results/**/*.parquet
+results/phase7/run1/injection_truth.csv

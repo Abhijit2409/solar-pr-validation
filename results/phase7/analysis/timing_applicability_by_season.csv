@@ -1,0 +1,9 @@
+scenario,season,cases,unique_windows,timing_conclusive,inconclusive_category,timing_applicability
+primary:poa_only,DJF,42,7,1,35,0.024
+primary:poa_only,JJA,30,5,2,20,0.067
+primary:poa_only,MAM,48,8,6,34,0.125
+primary:poa_only,SON,48,8,20,24,0.417
+secondary:whole_file,DJF,28,7,1,22,0.036
+secondary:whole_file,JJA,20,5,1,19,0.05
+secondary:whole_file,MAM,32,8,4,25,0.125
+secondary:whole_file,SON,32,8,14,16,0.438

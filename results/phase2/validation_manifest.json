@@ -1,0 +1,63 @@
+{
+  "overall_status": "PASS",
+  "exit_code": 0,
+  "skip_rerun": false,
+  "started_utc": "2026-10-27T01:25:43.546920+00:00",
+  "finished_utc": "2026-10-27T01:35:10.263549+00:00",
+  "duration_seconds": 566.7,
+  "result_counts": {
+    "PASS": 18,
+    "FAIL": 0,
+    "INFO": 5,
+    "SKIPPED": 0
+  },
+  "required_checks": 18,
+  "required_failed": [],
+  "required_skipped": [],
+  "file_sha256": {
+    "src/validate_structure.py": "7ae67a6f236636b461dcefa2687416b033c811c6d14e5102562c195be01a9753",
+    "src/ingest.py": "8dec9f466e8eb2d4bc769e7ee6326def658b846b2c47354c0141a2a763565ea2",
+    "src/timestamps.py": "7802c40984cb89c3a88fa8dcde8f35099abf7e7d6966ae5fed22723f58d80cf5",
+    "src/standardize.py": "8e67e1f9d2c7f5aad4898be67cecf41565b36760fee1d555a99a54cb5c921208",
+    "src/audit_phase1.py": "bec76d263cb763b812e8c7cb7740c6f6cdba0fbb3947252bbfc4bcbf02ad8902",
+    "config/data_structure.yaml": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52"
+  },
+  "pipeline_run_manifest": {
+    "config_sha256": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52",
+    "code_sha256": {
+      "src/ingest.py": "8dec9f466e8eb2d4bc769e7ee6326def658b846b2c47354c0141a2a763565ea2",
+      "src/timestamps.py": "7802c40984cb89c3a88fa8dcde8f35099abf7e7d6966ae5fed22723f58d80cf5",
+      "src/standardize.py": "8e67e1f9d2c7f5aad4898be67cecf41565b36760fee1d555a99a54cb5c921208"
+    },
+    "tables": {
+      "site_metadata": {
+        "rows": 1,
+        "content_sha256": "dfae68b5511c5769de6c864cbd1f3444f5435247f7b5d4f32cfa0c3b8bad3d4d"
+      },
+      "observations": {
+        "rows": 1149798,
+        "content_sha256": "c739e145d046646c6cc426bf6635220dffe5772ae4d02fabb3db24b1e361965e"
+      },
+      "expected_intervals": {
+        "rows": 841728,
+        "content_sha256": "e801d97724961846fcb6d812f14dd2f48e2387024b0bb631ad45387c4cf0e7c1"
+      },
+      "structural_quality_flags": {
+        "rows": 235999,
+        "content_sha256": "e9f637e0a5407cfc792dae856a67f983d3ef5cc18b01a6c7aebc089bbca56635"
+      },
+      "sampling_segments": {
+        "rows": 7,
+        "content_sha256": "5a67c44ccb6b3e0d7feb66dd4a5f41fec5a2433f2e3fbaca1e4b3b944ffdcf82"
+      }
+    }
+  },
+  "versions": {
+    "python": "3.11.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "pvlib": "0.16.1",
+    "pyarrow": "25.0.1",
+    "yaml": "6.0.3"
+  }
+}

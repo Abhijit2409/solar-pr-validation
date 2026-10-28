@@ -1,0 +1,12 @@
+check_id,check,result,measured
+P5-01,experiment-v1 specification files unchanged; freeze commit 2952d87 present,PASS,23/23; commit
+P5-02,"experiment-v2 keeps every v1 value (thresholds, periods, faults, seeds) except version and scoring rates",PASS,changed outside allowed: []; added keys: 26
+P5-03,pytest suite passes,PASS,69 passed in 14.41s
+P5-04,"Development statuses, reasons and context codes equal the Phase 4 prototype day by day",PASS,"{'basic': {'CHECKS_PASSED': 574, 'REVIEW_REQUIRED': 123, 'INSUFFICIENT_DATA': 33}, 'improved': {'CHECKS_PASSED': 572, 'REVIEW_REQUIRED': 123, 'INSUFFICIENT_DATA': 35}}"
+P5-05,Timing: 575 inconclusive days; conclusiveness agrees every day; lag differences only on inconclusive days,PASS,inconclusive 575; lag differences 39 (all inconclusive)
+P5-06,"Shared arithmetic equals the Phase 3 daily table (counts exact, values within 1e-9)",PASS,9.094947017729282e-13
+P5-07,Improved never reports CHECKS_PASSED (or a better status) when basic withholds,PASS,730 days
+P5-08,Every passed day with inconclusive timing carries the 'timing not verified' limitation,PASS,463 such days
+P5-09,Detector code reads no labels or window list; input has exactly the contract columns and opaque refs,PASS,forbidden terms in detector modules: []
+P5-10,Only development dates were evaluated (no evaluation-period detector run or PR),PASS,2018-02-01 .. 2020-01-31
+P5-11,Raw files and Phase 2 processed tables unchanged,PASS,"raw 22, processed 5"

@@ -1,0 +1,14 @@
+check_id,check,result,measured
+P01,Raw files unchanged (Phase 1 hashes),PASS,22/22
+P02,Phase 2 processed tables unchanged since the Phase 3 run (file SHA-256),PASS,5/5
+P03,Phase 2 validation status was PASS when Phase 3 ran,PASS,PASS
+P04,Window intervals = paired + excluded; each excluded interval has one reason,PASS,32556 = 31709 + 847
+P05,Every paired interval uses exactly 3 distinct POA observations; none reused,PASS,95127 POA ids
+P06,Unpaired intervals contribute no energy or irradiation,PASS,all null
+P07,Daily E_AC and H_POA equal the sums of paired intervals,PASS,sums equal
+P08,No DST-ambiguous interval inside the reporting window,PASS,0
+P09,"reported_pr is null unless CHECKS_PASSED, and equals diagnostic_pr when passed",PASS,"{'CHECKS_PASSED': 515, 'REVIEW_REQUIRED': 180, 'INSUFFICIENT_DATA': 35}"
+P10,"No PR is infinite; unavailable PR is null, never 0 by substitution",PASS,15 null diagnostic PR days
+P11,Re-running pairing and daily metrics reproduces identical content,PASS,content hashes equal
+P12,Independent raw-file recomputation matches production for selected development days,PASS,8/8 days
+P13,pytest suite passes,PASS,41 passed in 5.88s

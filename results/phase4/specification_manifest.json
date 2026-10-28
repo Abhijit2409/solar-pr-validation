@@ -1,0 +1,57 @@
+{
+  "checkpoint": "A - specification freeze (end of Phase 4)",
+  "experiment_version": "experiment-v1",
+  "created_utc": "2026-10-27T02:30:32.371488+00:00",
+  "frozen_now": [
+    "data and date boundaries",
+    "metric definition (phase3-v1 shared rules)",
+    "basic and improved methods and thresholds",
+    "fault specification",
+    "seeds and sampling policy",
+    "evaluation window sample (96 unique windows)",
+    "scoring rules and exclusions"
+  ],
+  "not_frozen_yet": [
+    "detector code (Phase 5)",
+    "injector code (Phase 6)",
+    "evaluator code (Phase 6-7)",
+    "implementation hashes -> checkpoint B before Phase 7"
+  ],
+  "file_sha256": {
+    "config/experiment.yaml": "1c5b9ae1fa999775fb996979712582ccbfbbee7bdc6681861443ed27ad7c1cdc",
+    "docs/experiment_protocol.md": "287b8f0da860651e84e49eca131dbef7d8190388a0ada7019eac93c43370b9e7",
+    "config/metric_definition.yaml": "ce4c409c6c50045cddf6306946668766c31ca90cbefb944b34af8a7cc623430f",
+    "config/data_structure.yaml": "b8b1984af9fd11aa1b73092cbb2574c5e84b348d2ee24f268dba08285292aa52",
+    "docs/metric_definition.md": "dfc672bba21992a560afc6f01233e9effbb0cb4e22831e304c5c4fc35e183958",
+    "docs/source_manifest.json": "8002f2007500cde1298cb0d55450976003ffb6acf8556d7a5bb239a20a325028",
+    "results/phase2/run_manifest.json": "c6d488722494bcf1611ac9d469a33023a000164592ed177da03c85dbc6115f40",
+    "results/phase2/validation_manifest.json": "7503c47393c17f360d5e4111b902baf4aec41d9c13a1f5d5b1ce40d01165c582",
+    "results/phase3/phase3_manifest.json": "246a16d3783e6539cbf37b2fe7e615cdc4967d793825a137cd60b7f81bcbfcce",
+    "results/phase3/phase3_validation_manifest.json": "4670e1d0e4c2bc9b343d0baae6014386ff993bde203516e8292c01e023aa959a",
+    "results/phase3/daily_pr_dev.csv": "4c235d8260f0999cdb1906acea8d50801698bb4afd2b009686b0b55e5ceafb58",
+    "results/phase3/paired_intervals_dev.parquet": "cfd5d95e02f9214c91eb61f5f188dfcaac683e76e1d355b9b0ec50a3049492c0",
+    "src/phase4_development_analysis.py": "c56201096c7862e2a2900bee51768c6876fa3ec4031c63782c40ce3ef2c7a749",
+    "src/validate_spec_phase4.py": "2bc059915eb1cc584f283e4cd73befd8d34300e19b23949a70e026d624c255e3",
+    "results/phase4/dev_method_status_prototype.csv": "ba18cdffc5dc659c4015772214ea1d6b9a483832d5d3b9d186a39b1aca4781ff",
+    "results/phase4/dev_stale_run_grid.csv": "5a8eadebcab144b8556ff2f3c9403435359574d44375b151441020c778448813",
+    "results/phase4/dev_timing_lags.csv": "ab07c17136997166366e954fab4be9813397309f6728ad0a7908a298751cbf46",
+    "results/phase4/dev_zero_pr_effect_passed_days.csv": "c9de39ebd599ad1c987e8bea1108829e3da26a15fb2600d89560e1eeb610d622",
+    "results/phase4/dev_zero_rate_by_poa.csv": "f56e9ac2a01718eb63ff4c5f593b70635c6f5564779413f6fdc3ae236e36bee5",
+    "results/phase4/development_analysis_summary.json": "3e2aad880f1e66d61fed207412051996329ec4d49722314e48f0ece53f9a4047",
+    "results/phase4/development_policy_comparison.csv": "6581e58c6ffee3d90c3efbea96860822b549c7a86033e798e98c4c4d94ee05ae",
+    "results/phase4/evaluation_structural_eligibility.csv": "eeb9a6efb2f32330dc9c69f2e9bb1530c40fa6f36a96d7f1a29c52f2b6b5ed05",
+    "results/phase4/evaluation_window_sample.csv": "72af6aaf0267dbe446d339ba56ced9c82ead0aba855a69ef2691b3da3a066623"
+  },
+  "processed_file_sha256": {
+    "site_metadata": "ead5faf7a55336606c3dcdb938815a80605070e64468e8f3d2fbdb1232ccb03f",
+    "observations": "7886ea57583d40a7697ff18ab17db0afc6dc66559ea729a2a6e06247d7d76c1f",
+    "expected_intervals": "61688e196b58ed7bca778b6b940e2a1a55a739fdd408035f232cd85bf55841a8",
+    "structural_quality_flags": "6c5551fc457a9fcef38e2e2866f2e16133f4b80ee5c86823a5939ac6f91190af",
+    "sampling_segments": "91e39b89d3352f1bfb9a1fc3a9b5d26856214786ff61e74a7db011be9e046b92"
+  },
+  "raw_files_unchanged": true,
+  "checks": {
+    "PASS": 10
+  },
+  "evaluation_inspection": "Phase 2 coverage_status, resolved_observation_state, local_day_length_h and solar geometry only; no values, PR, flags or detector outputs"
+}

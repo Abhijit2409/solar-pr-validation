@@ -1,0 +1,7 @@
+policy,days,CHECKS_PASSED,REVIEW_REQUIRED,INSUFFICIENT_DATA,reporting_coverage,review_burden,reason:UNRESOLVED_ZERO_OUTPUT,reason:NO_PAIRED_DATA,reason:LOW_IRRADIATION,reason:LOW_CLEARSKY_WEIGHTED_COVERAGE,reason:LOW_TIME_COVERAGE,reason:INVALID_INPUT_IN_WINDOW,reason:SUSPECTED_CATCH_UP,reason:MATERIAL_ZERO_OUTPUT,reason:SUSPICIOUS_ZERO_OUTPUT,reason:SUSPICIOUS_POA_ZERO,reason:POA_STALE,zero_policy_review_days
+phase3-v1 original (Phase 3 run),730,515.0,180.0,35.0,0.7054794520547946,0.2465753424657534,190.0,15.0,13.0,7.0,5.0,1.0,1.0,,,,,
+basic experiment-v1,730,574.0,123.0,33.0,0.7863013698630137,0.1684931506849315,,15.0,13.0,,5.0,1.0,1.0,121.0,15.0,2.0,,
+improved experiment-v1,730,572.0,123.0,35.0,0.7835616438356164,0.1684931506849315,,15.0,13.0,7.0,5.0,1.0,1.0,121.0,15.0,2.0,1.0,
+"zero policy only, materiality 0.005 (sensitivity)",730,,,,,,,,,,,,,,,,,171.0
+"zero policy only, materiality 0.010 (sensitivity)",730,,,,,,,,,,,,,,,,,123.0
+"zero policy only, materiality 0.020 (sensitivity)",730,,,,,,,,,,,,,,,,,34.0

@@ -1,0 +1,27 @@
+{
+  "case_id": "flatline_poa-DJF-07|primary:hold_last|+240",
+  "block_start_utc": "2023-01-14 19:55:00+00:00",
+  "block_end_utc": "2023-01-14 23:55:00+00:00",
+  "hold_value_wm2": 27.0,
+  "rows_in_block": 48,
+  "truth_n_rows_affected": 48,
+  "block_rows_equal_truth_affected_ids": true,
+  "pr_original": 0.8933107605913576,
+  "pr_faulted": 1.7494128805121518,
+  "pr_same_for_both_methods": true,
+  "basic_status": "CHECKS_PASSED",
+  "basic_category": "MISSED",
+  "improved_status": "REVIEW_REQUIRED",
+  "improved_reasons": "POA_STALE",
+  "improved_category": "DETECTED_SPECIFIC",
+  "stale_run_readings": 49,
+  "stale_run_span_min": 245,
+  "matplotlib": "3.11.2",
+  "png_px": [
+    1950,
+    1170
+  ],
+  "min_font_pt": 9.5,
+  "title": "A frozen irradiance sensor inflated reported PR from 89.3% to 174.9%",
+  "basic_limitation_note": true
+}

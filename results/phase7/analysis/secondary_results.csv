@@ -1,0 +1,13 @@
+family,scenario,severity,method,cases,unique_windows,detected,denominator,detected_of_denominator,headline_rate,conclusive_only_rate (secondary),withheld_other,inconclusive,missed,already_withheld,unscorable
+flatline_poa,secondary:fixed_value_600,120,basic,32,32,0,28,0/28,0.0,0.0,0,0,28,4,0
+flatline_poa,secondary:fixed_value_600,120,improved,32,32,28,28,28/28,1.0,1.0,0,0,0,4,0
+missing_daytime,secondary:explicit_nulls,120,basic,32,32,26,26,26/26,1.0,1.0,0,0,0,6,0
+missing_daytime,secondary:explicit_nulls,120,improved,32,32,26,26,26/26,1.0,1.0,0,0,0,6,0
+timestamp_shift,secondary:whole_file,-60,basic,32,32,0,28,0/28,0.0,0.0,2,0,26,4,0
+timestamp_shift,secondary:whole_file,-60,improved,32,32,6,28,6/28,0.214,0.5,6,16,0,4,0
+timestamp_shift,secondary:whole_file,-30,basic,32,32,0,28,0/28,0.0,0.0,0,0,28,4,0
+timestamp_shift,secondary:whole_file,-30,improved,32,32,5,28,5/28,0.179,1.0,0,23,0,4,0
+timestamp_shift,secondary:whole_file,30,basic,32,32,0,28,0/28,0.0,0.0,0,0,28,4,0
+timestamp_shift,secondary:whole_file,30,improved,32,32,4,28,4/28,0.143,1.0,0,24,0,4,0
+timestamp_shift,secondary:whole_file,60,basic,32,32,0,28,0/28,0.0,0.0,3,0,25,4,0
+timestamp_shift,secondary:whole_file,60,improved,32,32,5,28,5/28,0.179,0.556,4,19,0,4,0
